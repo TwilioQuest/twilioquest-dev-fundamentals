@@ -1,0 +1,15 @@
+{
+  "title": "ls",
+  "description": "Enter the path for the example file",
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "Enter the path to your new directory",
+      "label": "New dir path"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "title": "ls",
+  "description": "Enter the path for the example file",
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "Enter a directory name",
+      "label": "dir path"
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "Enter a file name",
+      "label": "file path"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

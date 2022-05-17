@@ -1,0 +1,15 @@
+{
+  "title": "File paths",
+  "description": "Enter the path for the example file",
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "Enter a file path",
+      "label": "file path"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

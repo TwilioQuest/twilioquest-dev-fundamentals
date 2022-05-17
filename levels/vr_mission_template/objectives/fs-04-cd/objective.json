@@ -1,0 +1,21 @@
+{
+  "title": "cd",
+  "description": "Enter the path for the example file",
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "Enter the new path for the current working directory",
+      "label": "Path after cd"
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "Enter the new path for the current working directory",
+      "label": "Path after ls"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}
