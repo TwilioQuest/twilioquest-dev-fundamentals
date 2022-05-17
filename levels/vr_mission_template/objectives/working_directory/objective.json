@@ -1,0 +1,15 @@
+{
+  "title": "Working Directory",
+  "description": "Enter your working directory",
+  "validation_fields": [
+    {
+      "name": "workspacePath",
+      "type": "text",
+      "placeholder": "Enter a directory here",
+      "label": "File directory"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

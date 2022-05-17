@@ -1,5 +1,5 @@
-module.exports = function(event, world) {
-  console.log(`VR Template: ${event.name}`);
+module.exports = function (event, world) {
+  console.log(`Dev Funds: ${event.name}`);
   console.log(event);
   console.log(world);
-}
+};

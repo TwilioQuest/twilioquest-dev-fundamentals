@@ -1,7 +1,7 @@
 {
-  "title": "VR Mission Template",
+  "title": "Dev Fundamentals PlayGround",
   "description": "This is an example of how to create a 'training mission' for the VR training environment aboard the Fog Owl!",
-  "questTitle": "Virtual Reality Training",
+  "questTitle": "VDev Fundamentals PlayGround",
   "questDescription": "Example level for VR training. See what's possible!",
   "mission_icon": "mission_icon.png",
   "is_mission": true,
@@ -12,7 +12,9 @@
     "options": {}
   },
   "flavorTextOverrides": {
-    "bookshelf": "There's nothing like a good book."
+    "bookshelf": "There's nothing like a good book except a better book.",
+    "full": "The bookshelf is full!",
+    "empty": "The bookshelf is empty!"
   },
   "objectives": ["example_objective", "example_objective2"]
 }
