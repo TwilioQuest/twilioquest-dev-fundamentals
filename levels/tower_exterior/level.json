@@ -1,0 +1,16 @@
+{
+  "title": "The Tower of Infinite Knowledge",
+  "description": "Be a lifelong learner and get started using your computer like a developer!",
+  "questTitle": "The Tower of Infinite Knowledge",
+  "questDescription": "Learn how to use your computer like a developer!",
+  "navMap": {
+    "x": 10,
+    "y": 80,
+    "sprite": "nav_map/DevFundamentals.png"
+  },
+  "is_mission": false,
+  "priority": 3,
+  "backgroundMusic": "fascinatingarea_108253b",
+  "flavorTextOverrides": {},
+  "objectives": []
+}
