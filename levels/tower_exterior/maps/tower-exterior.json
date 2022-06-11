@@ -422,6 +422,23 @@
                  "width":528,
                  "x":-552,
                  "y":216
+                }, 
+                {
+                 "height":324,
+                 "id":192,
+                 "name":"triggerViewTower",
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"triggerViewTower"
+                        }],
+                 "rotation":0,
+                 "type":"triggerArea",
+                 "visible":true,
+                 "width":36,
+                 "x":648,
+                 "y":672
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -700,7 +717,7 @@
          "y":0
         }],
  "nextlayerid":50,
- "nextobjectid":192,
+ "nextobjectid":193,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
