@@ -1,0 +1,76 @@
+conversation(display_name="Cloud Explorer")
+  case lastResponse
+    default
+      statement#default
+      responses
+        response#here_to_learn.
+          I am! What do you know about it?
+        response#what_tower.
+          I didn't even know there was a tower here at all!
+        
+    when "what_tower"
+      statement#see_tower_from_space
+      responses
+        response#i_guess.
+          Oh, I guess I noticed something on my nav map...
+        response#anyway.
+          So, anyway, what's that about secrets?
+
+    when "anyway"
+    when "i_guess"
+    when "here_to_learn"
+      statement#secrets
+      responses
+        response#is_lucky.
+          That is lucky! How do we get inside to help out?
+        response#hmmm.
+          Hmm... Are you sure you're here to help?
+
+    when "hmmm"
+      statement#of_course
+      responses
+        response#get_inside.
+          Well, okay then... So, how do we get inside?
+
+    when "get_inside"
+    when "is_lucky"
+      statement#we_cant_get_in
+      responses
+        response#what_can_i_do.
+          Is there nothing to do here then?
+    
+    when "ill_find_toolboxes"
+    when "what_can_i_do"
+      statement#find_toolboxes
+      responses
+        response#what_is_collector.
+          New Developer Pain Point Collector? That's a mouthful! What is that?
+
+    when "what_is_collector"
+      statement#collector_is
+      responses
+        response#ill_find_toolboxes.
+          I guess I'll start searching for those toolboxes then!
+
+  statements
+    statement#default
+      text.
+        Ahoy there! Are you here to learn the secrets of this tower as well?
+    statement#see_tower_from_space
+      text.
+        Uh... How did you miss it? You can see it all the way from space!
+    statement#secrets
+      text.
+        I received a low-energy distress beacon broadcasted to everyone in the nearby. It's lucky I happened to already be scanning for treasu- <em>err</em>... I mean, people to help!
+    statement#of_course
+      text.
+        Of course! I have no reason to be here to learn the secrets of the cloud for my own personal gains. I'm here to help someone in need!
+    statement#we_cant_get_in
+      text.
+        Well... This is awkward... But I don't think we can! At least <span class="highlight">not until a future update of TwilioQuest!</span>
+    statement#find_toolboxes
+      text.
+        Well, actually, I did lose a bunch of toolboxes when I landed on the planet. If you could find <span class="highlight">three</span> of them, then I could fix my <span class="highlight">New Developer Pain Point Collector</span>.
+    statement#collector_is
+      text.
+        Oh, you'll love it! It's this handy little device lets me get answers to all sorts of questions, theoretically... I just need to get it working first!

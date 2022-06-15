@@ -4,7 +4,11 @@ const viewTower = require("./events/viewTower");
 const WORLD_STATE_KEY = "com.twilioquest.developer-fundamentals";
 
 const INITIAL_STATE = {
-  hasStartedInitialTowerTween: false,
+  towerExterior: {
+    hasStartedInitialTowerTween: false,
+    playerWantsToLearn: "",
+    toolboxesFound: [],
+  },
 };
 
 module.exports = function (event, world) {
@@ -17,9 +21,9 @@ module.exports = function (event, world) {
   if (
     event.name === "triggerAreaWasEntered" &&
     event.target.key === "triggerViewTower" &&
-    !worldState.hasStartedInitialTowerTween
+    !worldState.towerExterior.hasStartedInitialTowerTween
   ) {
-    worldState.hasStartedInitialTowerTween = true;
+    worldState.towerExterior.hasStartedInitialTowerTween = true;
 
     viewTower(world);
   }
