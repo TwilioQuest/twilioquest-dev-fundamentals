@@ -79,5 +79,20 @@ module.exports = function (event, world) {
     world.hideEntities("space-explorer-pain-point");
   }
 
+  if (
+    event.name === "playerDidInteract" &&
+    event.target.key === "door-dev-tower"
+  ) {
+    if (toolboxCountFound >= TOOLBOX_COUNT_TO_FIND) {
+      world.showNotification(
+        'I guess The Librarian still needs more time to finish tidying up... <span class="highlight">I should come back in a future game update!</span>'
+      );
+    } else {
+      world.showNotification(
+        'The tower doors won\'t budge... <span class="highlight">I should come back in a future game update!</span>'
+      );
+    }
+  }
+
   world.setState(WORLD_STATE_KEY, worldState);
 };
