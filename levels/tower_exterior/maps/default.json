@@ -403,9 +403,14 @@
                  "name":"",
                  "properties":[
                         {
-                         "name":"interactable",
+                         "name":"hidden",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"key",
@@ -426,9 +431,14 @@
                  "name":"",
                  "properties":[
                         {
-                         "name":"interactable",
+                         "name":"hidden",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"key",
@@ -449,9 +459,14 @@
                  "name":"",
                  "properties":[
                         {
-                         "name":"interactable",
+                         "name":"hidden",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":false
                         }, 
                         {
                          "name":"key",
