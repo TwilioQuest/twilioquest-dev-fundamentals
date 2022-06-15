@@ -403,6 +403,11 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"key",
                          "type":"string",
                          "value":"toolbox-4"
@@ -421,6 +426,11 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"key",
                          "type":"string",
                          "value":"toolbox-5"
@@ -438,6 +448,11 @@
                  "id":229,
                  "name":"",
                  "properties":[
+                        {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"key",
                          "type":"string",

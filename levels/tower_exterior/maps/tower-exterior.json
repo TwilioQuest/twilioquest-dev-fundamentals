@@ -177,6 +177,12 @@
                  "height":32,
                  "id":133,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"space-explorer-initial"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -447,6 +453,11 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"key",
                          "type":"string",
                          "value":"toolbox-1"
@@ -464,6 +475,11 @@
                  "id":196,
                  "name":"",
                  "properties":[
+                        {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"key",
                          "type":"string",
@@ -483,6 +499,11 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"interactable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"key",
                          "type":"string",
                          "value":"toolbox-3"
@@ -493,6 +514,34 @@
                  "width":24,
                  "x":312,
                  "y":948
+                }, 
+                {
+                 "gid":14584,
+                 "height":32,
+                 "id":198,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"conversation",
+                         "type":"string",
+                         "value":"spaceExplorerPainPoint"
+                        }, 
+                        {
+                         "name":"hidden",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"key",
+                         "type":"string",
+                         "value":"space-explorer-pain-point"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":438,
+                 "y":666
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -771,7 +820,7 @@
          "y":0
         }],
  "nextlayerid":50,
- "nextobjectid":198,
+ "nextobjectid":199,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
