@@ -1,0 +1,23 @@
+conversation(display_name="Cloud Explorer")
+  case lastResponse
+    when "wait_i_helped"
+      statement#survey
+      responses
+
+    default
+      statement#default
+      responses
+        response#wait_i_helped.
+          Hey, wait! I helped too! Ah, never mind... How do we use it?
+
+  statements
+    statement#default
+      text.
+        I've done it! I've fixed this <span class="highlight">New Developer Pain Point Collector</span> all by myself!
+    statement#survey
+      text.
+        It looks like some kind of... URL??? Wow, how quaint! Uh, you know, why don't you click on this first... 
+        <br/>
+        <br/>
+        <a href="https://airtable.com/shr9X0OZGeoEjcsob">CLICK HERE TO OPEN THE NEW DEVELOPER PAIN POINT COLLECTOR</a>
+
