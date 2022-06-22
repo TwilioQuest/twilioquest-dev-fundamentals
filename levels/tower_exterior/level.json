@@ -4,8 +4,8 @@
   "questTitle": "The Tower of Infinite Knowledge",
   "questDescription": "This is a short teaser for our upcoming mission on how to use your computer like a developer!",
   "navMap": {
-    "x": 48,
-    "y": 38,
+    "x": 18,
+    "y": 51,
     "sprite": "nav_map/DevFundamentals.png",
     "tileHeight": 72
   },
