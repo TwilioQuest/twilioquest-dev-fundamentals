@@ -1,12 +1,12 @@
 {
-  "title": "mkdir",
+  "title": "hidden",
   "description": "Enter the path for the example file",
   "validation_fields": [
     {
       "name": "answer1",
       "type": "text",
-      "placeholder": "Enter the path to your new directory",
-      "label": "New dir path"
+      "placeholder": "Enter the command to reveal the hidden file",
+      "label": "Show hidden file command"
     }
   ],
   "rewards": {

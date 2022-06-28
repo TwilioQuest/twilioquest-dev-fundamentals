@@ -1,12 +1,12 @@
 {
-  "title": "mkdir",
+  "title": "File paths",
   "description": "Enter the path for the example file",
   "validation_fields": [
     {
       "name": "answer1",
       "type": "text",
-      "placeholder": "Enter the path to your new directory",
-      "label": "New dir path"
+      "placeholder": "Enter a file path",
+      "label": "file path"
     }
   ],
   "rewards": {

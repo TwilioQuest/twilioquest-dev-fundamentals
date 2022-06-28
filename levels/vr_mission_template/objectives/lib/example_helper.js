@@ -11,10 +11,9 @@ function lastCommand(commandString) {
   return false;
 }
 
-function lastTenCommands() {
+function lastXCommands(depth) {
   const history = shellHistory();
-  const lastTen = history.slice(-10);
-  return lastTen;
+  return history.slice(-depth);
 }
 
 function dirInHome(name) {
@@ -31,7 +30,7 @@ function fileInHome(name) {
 
 module.exports = {
   lastCommand,
-  lastTenCommands,
+  lastXCommands,
   dirInHome,
   fileInHome,
 };

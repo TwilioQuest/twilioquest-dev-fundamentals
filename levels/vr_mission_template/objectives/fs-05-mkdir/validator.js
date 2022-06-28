@@ -1,5 +1,5 @@
 const fs = require("fs-jetpack");
-const { lastTenCommands } = require("../lib/example_helper.js");
+const { lastXCommands } = require("../lib/example_helper.js");
 
 module.exports = async function (helper) {
   const { answer1 } = helper.validationFields;
@@ -24,7 +24,7 @@ module.exports = async function (helper) {
     `);
   }
 
-  const hasDirName = lastTenCommands().filter((x) => x.includes(dirName));
+  const hasDirName = lastXCommands(10).filter((x) => x.includes(dirName));
   const hasMkDir = hasDirName.filter((x) => x.includes("mkdir"));
 
   if (hasMkDir.length === 0) {
@@ -33,7 +33,15 @@ module.exports = async function (helper) {
     `);
   }
 
-  helper.success(`
+  helper.success(
+    `
     Hooray! You did it!
-  `);
+  `,
+    [
+      {
+        name: "FILE_WORKSPACE_PATH",
+        value: answer1,
+      },
+    ]
+  );
 };

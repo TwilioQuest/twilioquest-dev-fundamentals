@@ -1,0 +1,9 @@
+{
+  "title": "cp",
+  "description": "Enter the path for the example file",
+  "validation_fields": [
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

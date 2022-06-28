@@ -1,0 +1,9 @@
+{
+  "title": "Build a cutlery drawer",
+  "description": "Build the cutlery drawer",
+  "validation_fields": [
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}
