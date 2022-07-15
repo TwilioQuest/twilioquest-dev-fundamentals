@@ -12,7 +12,11 @@ const INITIAL_STATE = {
 module.exports = function (event, world) {
   const worldState = merge(INITIAL_STATE, world.getState(WORLD_STATE_KEY));
 
-  if (event.name === "playerDidInteract" && event.target.key === "telescope") {
+  if (
+    event.name === "playerDidInteract" &&
+    (event.target.key === "elevator-control" ||
+      event.target.key === "elevator-door")
+  ) {
     //
     // TODO: Restore proper functionality:
     // viewTower(world);
@@ -31,7 +35,7 @@ module.exports = function (event, world) {
               worldState.elevator.isTransitioning = true;
               world.setState(WORLD_STATE_KEY, worldState);
 
-              world.warp("tower_exterior", "player_entry1", "tower-exterior");
+              world.warp("tower_of_knowledge", "player_entry1", "default");
             },
           },
           {
@@ -39,14 +43,14 @@ module.exports = function (event, world) {
             description:
               "Here is some description about the contents of this floor.",
             onSelect: () =>
-              world.warp("tower_exterior", "player_entry1", "tower-exterior"),
+              world.warp("tower_of_knowledge", "player_entry1", "default"),
           },
           {
             title: "L2. Trendy Terminal Topics",
             description:
               "Here is some description about the contents of this floor.",
             onSelect: () =>
-              world.warp("tower_exterior", "player_entry1", "tower-exterior"),
+              world.warp("tower_of_knowledge", "player_entry1", "default"),
           },
         ],
       },
