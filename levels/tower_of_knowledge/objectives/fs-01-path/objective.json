@@ -1,15 +1,15 @@
 {
-  "title": "Difference of Min and Max",
-  "description": "Find the difference of the maximum and minimum number in an array.",
+  "title": "Finding your Path",
+  "description": "Find the path to a file.",
   "validation_fields": [
     {
-      "name": "prompt",
-      "type": "prompt",
-      "placeholder": "",
-      "label": "Click HACK to test your function."
+      "name": "filePath",
+      "type": "text",
+      "placeholder": "/path/to/a/file.txt",
+      "label": "Enter the file path to Cedric's YouTube video."
     }
   ],
-  "show_ide": true,
+  "show_ide": false,
   "rewards": {
     "xp": 100
   }
