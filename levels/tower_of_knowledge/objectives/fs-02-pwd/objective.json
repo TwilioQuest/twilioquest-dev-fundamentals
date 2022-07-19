@@ -1,12 +1,12 @@
 {
-  "title": "Difference of Min and Max",
-  "description": "Find the difference of the maximum and minimum number in an array.",
+  "title": "Find Your Directory",
+  "description": "Open your terminal and figure out your current working directory.",
   "validation_fields": [
     {
-      "name": "prompt",
-      "type": "prompt",
-      "placeholder": "",
-      "label": "Click HACK to test your function."
+      "name": "cwd",
+      "type": "text",
+      "placeholder": "/path/looks/like/this",
+      "label": "Enter your current working directory."
     }
   ],
   "show_ide": true,
