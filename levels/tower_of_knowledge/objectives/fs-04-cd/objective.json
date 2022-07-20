@@ -1,6 +1,6 @@
 {
-  "title": "Difference of Min and Max",
-  "description": "Find the difference of the maximum and minimum number in an array.",
+  "title": "Moving Through Directories",
+  "description": "Move from one directory to another one.",
   "validation_fields": [
     {
       "name": "prompt",
