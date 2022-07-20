@@ -5,13 +5,13 @@
     {
       "name": "pwd1",
       "type": "text",
-      "placeholder": "directory",
+      "placeholder": "directory/path",
       "label": "What is the present working directory in scenario #1?"
     },
     {
       "name": "pwd2",
       "type": "text",
-      "placeholder": "directory",
+      "placeholder": "directory/path",
       "label": "What is the present working directory in scenario #2?"
     }
   ],

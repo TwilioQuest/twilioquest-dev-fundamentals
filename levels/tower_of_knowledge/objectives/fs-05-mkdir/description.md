@@ -1,15 +1,26 @@
-# Difference of Min and Max
+<% const isWindows = context.systemInfo.os === 'win32'; %>
+
+# Creating Our Own Directories
 
 <div class="aside">
 <h3>Requirements</h3>
 <ul>
-  <li>Create a function called `differenceMinMax`.</li>
-  <li>This function receives an array of numbers.</li>
-  <li>Return the difference of the largest and smallest number in that array.</li>
+  <li>Study the file tree diagram below.</li>
+  <li>Determine what your present working directory would be in scenario #1 below.</li>
+  <li>Determine what your present working directory would be in scenario #2 below.</li>
+  <li>Enter these values into the inputs on the right.</li>
   <li>Once you're done, press <em>HACK</em>.</li>
 </ul>
 </div>
 
-It looks like this section of the forge is responsible for performing computations. This particular terminal is finding the appropriate temperature range for darkening Ducktypium.
+Now that we can change into existing directories, lets learn how to create our own!
 
-Create a function called `differenceMinMax` that accepts an array of numbers as its first argument. This function should return the difference (the mathematical result of subtraction) of the maximum and minimum numbers in that array. Then click the _HACK_ button.
+Enter these present working directories into the inputs on the right. Then click the _HACK_ button.
+
+<% if(isWindows) { %>
+
+TODO: Implement Windows Text
+
+<% } else { %>
+
+<% } %>

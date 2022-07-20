@@ -51,7 +51,7 @@ TODO: Implement Windows Text
 
 It's time to learn about our third file system related command. This one is called `cd` and it stands for "change directory". Like the name suggests, this will let us change which directory is our terminal's "present working directory".
 
-When you type `cd` into the terminal, and then you put the name of a directory after it your terminal will "move" or "change" to that new directory. This means when you run `pwd` afterward, you'll see the new directory.
+When you type `cd` into the terminal, and then you put the name of a directory after it your terminal will move or "change" to that new directory. This means when you run `pwd` afterward, you'll see the new directory.
 
 Here's an example of using `cd` from Cedric's file system:
 

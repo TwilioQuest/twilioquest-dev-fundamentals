@@ -1,12 +1,12 @@
 {
-  "title": "Difference of Min and Max",
-  "description": "Find the difference of the maximum and minimum number in an array.",
+  "title": "Making our Own Directories",
+  "description": "Create a new directory where we can put our own files.",
   "validation_fields": [
     {
-      "name": "prompt",
-      "type": "prompt",
-      "placeholder": "",
-      "label": "Click HACK to test your function."
+      "name": "newDirPath",
+      "type": "text",
+      "placeholder": "/path/to/directory",
+      "label": "What is the file path to the directory you just created?"
     }
   ],
   "show_ide": true,
