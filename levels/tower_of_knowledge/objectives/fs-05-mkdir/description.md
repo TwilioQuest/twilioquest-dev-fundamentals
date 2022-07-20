@@ -5,22 +5,37 @@
 <div class="aside">
 <h3>Requirements</h3>
 <ul>
-  <li>Study the file tree diagram below.</li>
-  <li>Determine what your present working directory would be in scenario #1 below.</li>
-  <li>Determine what your present working directory would be in scenario #2 below.</li>
-  <li>Enter these values into the inputs on the right.</li>
+  <li>Make a new directory with `<%= isWindows ? "TODO" : "mkdir" %>`.</li>
+  <li>Get the file path to this directory.</li>
+  <li>Enter this file path into the input on the right.</li>
   <li>Once you're done, press <em>HACK</em>.</li>
 </ul>
 </div>
 
-Now that we can change into existing directories, lets learn how to create our own!
-
-Enter these present working directories into the inputs on the right. Then click the _HACK_ button.
+Now that we can change into existing directories, lets learn how to make our own!
 
 <% if(isWindows) { %>
 
 TODO: Implement Windows Text
 
 <% } else { %>
+
+We will be using the `mkdir`, or "make directory" command to accomplish this task. To use `mkdir` you write the name of the directory you want to create after the command in the terminal.
+
+Here's an example of creating a directory called "test_directory". We also use `ls` before and after to confirm that the new directory has been made.
+
+```bash
+$ ls
+old_directory
+
+$ mkdir new_directory
+
+$ ls
+old_directory new_directory
+```
+
+To complete this objective, use `mkdir` to create a new directory with a name of your choosing. Then, find the file path that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
+
+Once you've found it, enter the file path to your new directory in the input on the right. Then click the _HACK_ button.
 
 <% } %>
