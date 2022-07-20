@@ -8,6 +8,10 @@ const INITIAL_STATE = {
     isTransitioning: false,
     warpTarget: [],
   },
+  fileSystem: {
+    hiddenEntities: [],
+    openedDoors: [],
+  },
 };
 
 const createChangeFloorHandler = (world, warpTarget) => () => {
@@ -77,20 +81,44 @@ module.exports = function (event, world) {
   // Match objectives to shelves they should unlock when an
   // objective completion event occurs.
   const unlockPairs = [
-    ["objective3", "fs-shelf-1"],
-    ["objective5", "fs-shelf-3"],
-    ["objective7", "fs-shelf-4"],
+    ["fs-03-ls", "fs-shelf-1"],
+    ["fs-04-cd", "fs-shelf-3"],
+    ["fs-05-mkdir", "fs-shelf-4"],
   ];
+
+  const doorPairs = [
+    ["fs-01-path", "fs-door-1"],
+    ["fs-02-pwd", "fs-door-2"],
+  ];
+
   if (
     event.name === "objectiveCompleted" ||
     event.name === "objectiveCompletedAgain"
   ) {
     unlockPairs.forEach(([objectiveKey, shelfKey]) => {
-      if (event.target.key === objectiveKey) {
-        world.hideEntities(shelfKey);
+      if (event.objective === objectiveKey) {
+        worldState.fileSystem.hiddenEntities.push(shelfKey);
+      }
+    });
+
+    doorPairs.forEach(([objectiveKey, doorKey]) => {
+      if (event.objective === objectiveKey) {
+        worldState.fileSystem.openedDoors.push(doorKey);
       }
     });
   }
+
+  // Hide entities
+  worldState.fileSystem.hiddenEntities.forEach((hiddenEntityKey) => {
+    world.hiddenEntities(hiddenEntityKey);
+  });
+
+  // Open doors
+  worldState.fileSystem.openedDoors.forEach((openedDoorKey) => {
+    world.forEachEntities(openedDoorKey, (door) =>
+      door.state.fsm.action("open")
+    );
+  });
 
   world.setState(WORLD_STATE_KEY, worldState);
 };
