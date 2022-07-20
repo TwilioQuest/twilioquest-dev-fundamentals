@@ -1,12 +1,18 @@
 {
   "title": "Moving Through Directories",
-  "description": "Move from one directory to another one.",
+  "description": "Learn how to traverse the file system by moving from one directory to another one.",
   "validation_fields": [
     {
-      "name": "prompt",
-      "type": "prompt",
-      "placeholder": "",
-      "label": "Click HACK to test your function."
+      "name": "pwd1",
+      "type": "text",
+      "placeholder": "directory",
+      "label": "What is the present working directory in scenario #1?"
+    },
+    {
+      "name": "pwd2",
+      "type": "text",
+      "placeholder": "directory",
+      "label": "What is the present working directory in scenario #2?"
     }
   ],
   "show_ide": true,

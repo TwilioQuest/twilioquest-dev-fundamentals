@@ -160,42 +160,6 @@
                  "y":312
                 }, 
                 {
-                 "gid":10074,
-                 "height":24,
-                 "id":245,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"objectiveName",
-                         "type":"string",
-                         "value":"fs-03b-ls"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":24,
-                 "x":347,
-                 "y":969
-                }, 
-                {
-                 "gid":10074,
-                 "height":24,
-                 "id":247,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"objectiveName",
-                         "type":"string",
-                         "value":"fs-04b-cd"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":24,
-                 "x":673,
-                 "y":864
-                }, 
-                {
                  "gid":18043,
                  "height":72,
                  "id":250,

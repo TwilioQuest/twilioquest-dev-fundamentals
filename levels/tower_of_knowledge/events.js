@@ -10,6 +10,15 @@ const INITIAL_STATE = {
   },
 };
 
+const createChangeFloorHandler = (world, warpTarget) => () => {
+  const worldState = world.getState(WORLD_STATE_KEY);
+  worldState.elevator.isTransitioning = true;
+  worldState.elevator.warpTarget = warpTarget;
+  world.setState(WORLD_STATE_KEY, worldState);
+
+  world.warp(...warpTarget);
+};
+
 module.exports = function (event, world) {
   const worldState = merge(INITIAL_STATE, world.getState(WORLD_STATE_KEY));
 
@@ -26,34 +35,22 @@ module.exports = function (event, world) {
         floors: [
           {
             title: "G. Lobby",
-            description:
-              "Here is some description about the contents of this floor.",
-            onSelect: async () => {
-              const worldState = world.getState(WORLD_STATE_KEY);
-              worldState.elevator.isTransitioning = true;
-              worldState.elevator.warpTarget = [
-                "tower_of_knowledge",
-                "player_entry1",
-                "default",
-              ];
-              world.setState(WORLD_STATE_KEY, worldState);
-
-              // world.warp("tower_of_knowledge", "player_entry1", "default");
-            },
+            description: "The entrance to the Tower of Infinite Knowledge.",
+            onSelect: createChangeFloorHandler(world, [
+              "tower_of_knowledge",
+              "player_entry2",
+              "default",
+            ]),
           },
           {
             title: "L1. File System Fundamentals",
             description:
-              "Here is some description about the contents of this floor.",
-            onSelect: () =>
-              world.warp("tower_of_knowledge", "player_entry1", "default"),
-          },
-          {
-            title: "L2. Trendy Terminal Topics",
-            description:
-              "Here is some description about the contents of this floor.",
-            onSelect: () =>
-              world.warp("tower_of_knowledge", "player_entry1", "default"),
+              "Learn about how the file system on your computer works.",
+            onSelect: createChangeFloorHandler(world, [
+              "tower_of_knowledge",
+              "player_entry1",
+              "file-system",
+            ]),
           },
         ],
       },
@@ -81,7 +78,6 @@ module.exports = function (event, world) {
   // objective completion event occurs.
   const unlockPairs = [
     ["objective3", "fs-shelf-1"],
-    ["objective3", "fs-shelf-2"],
     ["objective5", "fs-shelf-3"],
     ["objective7", "fs-shelf-4"],
   ];

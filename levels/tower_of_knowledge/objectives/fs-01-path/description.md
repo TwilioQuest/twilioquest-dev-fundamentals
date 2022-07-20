@@ -5,7 +5,7 @@
 <div class="aside">
 <h3>Requirements</h3>
 <ul>
-  <li>Study the diagram below.</li>
+  <li>Study the file tree diagram below.</li>
   <li>Enter the file path shown into the input on the right.</li>
   <li>Once you're done, press <em>HACK</em>.</li>
 </ul>

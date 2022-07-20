@@ -197,6 +197,24 @@
                  "width":24,
                  "x":432,
                  "y":552
+                }, 
+                {
+                 "height":0,
+                 "id":243,
+                 "name":"player_entry2",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"initialFacing",
+                         "type":"string",
+                         "value":"down"
+                        }],
+                 "rotation":0,
+                 "type":"player",
+                 "visible":true,
+                 "width":0,
+                 "x":396,
+                 "y":594
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -307,7 +325,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -359,13 +377,13 @@
                  "value":true
                 }],
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":33,
          "x":0,
          "y":0
         }],
  "nextlayerid":57,
- "nextobjectid":243,
+ "nextobjectid":244,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
