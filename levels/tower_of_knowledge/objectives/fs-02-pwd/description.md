@@ -1,18 +1,20 @@
 <% const isWindows = context.systemInfo.os === 'win32'; %>
 
-# Find Your Directory
+# Find Your Home Directory
 
 <div class="aside">
 <h3>Requirements</h3>
 <ul>
   <li>Open your terminal.</li>
-  <li>Type in the command <b><%= isWindows ? "PowerShell" : "pwd" %></b>.</li>
+  <li>Type in the command <b><%= isWindows ? "TODO" : "pwd" %></b>.</li>
   <li>Copy the resulting file path into the input on the right.</li>
   <li>Once you're done, press <em>HACK</em>.</li>
 </ul>
 </div>
 
 Now that you understand what a file path is, it's time to figure out where you're working from. Let's get into the terminal and find out!
+
+> 💡 You'll be able to learn more about how terminals work on a future floor of the **Tower of Infinite Knowledge**! The rest of this current floor will assume that you have some familiarity with a terminal.
 
 Open up the program `<%= isWindows ? "PowerShell" : "Terminal" %>`. You'll see a blank screen with a blinking cursor on it and not much else. This is your terminal!
 

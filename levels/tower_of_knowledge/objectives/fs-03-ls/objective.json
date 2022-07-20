@@ -1,12 +1,12 @@
 {
-  "title": "Difference of Min and Max",
-  "description": "Find the difference of the maximum and minimum number in an array.",
+  "title": "Find Another Directory",
+  "description": "Find another directory on your computer.",
   "validation_fields": [
     {
-      "name": "prompt",
-      "type": "prompt",
-      "placeholder": "",
-      "label": "Click HACK to test your function."
+      "name": "directoryName",
+      "type": "text",
+      "placeholder": "directory",
+      "label": "Enter the name of a directory."
     }
   ],
   "show_ide": true,

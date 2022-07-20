@@ -1,5 +1,5 @@
 {
-  "title": "Find Your Directory",
+  "title": "Find Your Home Directory",
   "description": "Open your terminal and figure out your current working directory.",
   "validation_fields": [
     {
