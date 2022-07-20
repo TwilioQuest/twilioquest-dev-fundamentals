@@ -14,11 +14,11 @@
 
 Now that you understand what a file path is, it's time to figure out where you're working from. Let's get into the terminal and find out!
 
-> 💡 You'll be able to learn more about how terminals work on a future floor of the **Tower of Infinite Knowledge**! The rest of this current floor will assume that you have some familiarity with a terminal.
-
 Open up the program `<%= isWindows ? "PowerShell" : "Terminal" %>`. You'll see a blank screen with a blinking cursor on it and not much else. This is your terminal!
 
 The terminal is a powerful tool in the developer tool belt. It can also be an overwhelming one that is pretty unfamiliar on first encounter (and many after).
+
+> 💡 You'll be able to learn more about how terminals work on a future floor of the **Tower of Infinite Knowledge**! The rest of this current floor will assume that you have some familiarity with a terminal.
 
 A terminal is a program with a [text interface](https://en.wikipedia.org/wiki/Text-based_user_interface) instead a [graphical interface](https://en.wikipedia.org/wiki/Graphical_user_interface). Most programs you've used until now (like Spotify or Chrome) have probably had a graphical interface!
 

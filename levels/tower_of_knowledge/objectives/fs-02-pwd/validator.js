@@ -1,39 +1,38 @@
-const assert = require("assert");
-
-const assertTestCase = (testFunction) => (input, expected) => {
-  const testResult = testFunction(input);
-
-  assert.strictEqual(
-    testResult,
-    expected,
-    `Expected "${expected}" from input "${input}", but received "${testResult}".`
-  );
-};
+const { existsSync } = require("fs");
 
 module.exports = async function (helper) {
-  let context;
+  const pwd = helper.getNormalizedInput("pwd", {
+    lowerCase: false,
+  });
 
   try {
-    context = await helper.pullVarsFromQuestIdeUserCodeLocalScope(
-      ["differenceMinMax"],
-      "difference-max-min"
-    );
+    if (!pwd) {
+      helper.fail(
+        "You need to provide your present working directory in the Hack Interface!"
+      );
+      return;
+    }
 
-    assert(
-      context.differenceMinMax,
-      "The function differenceMinMax is not defined!"
-    );
-
-    const test = assertTestCase(context.differenceMinMax);
-
-    test([1, 2, 3, 4, 5], 4);
-    test([100, 0], 100);
-    test([3.3, 5, -2, 5], 7);
-    test([8, 1.2, 5, 9], 7.8);
+    if (!existsSync(pwd)) {
+      helper.fail(
+        `TwilioQuest cannot locate the path you entered, "${pwd}", on your computer.`
+      );
+      return;
+    }
   } catch (err) {
-    helper.fail(err);
+    helper.fail(`An error occurred while TwilioQuest was trying to validate your present working directory.
+    
+    ${err}`);
     return;
   }
 
-  helper.success("You did it!");
+  helper.success(
+    "TwiloQuest was able to verify your present working directory! Well done!",
+    [
+      {
+        name: "DEV_FUNDAMENTALS_FILE_SYSTEM_PWD",
+        value: pwd,
+      },
+    ]
+  );
 };
