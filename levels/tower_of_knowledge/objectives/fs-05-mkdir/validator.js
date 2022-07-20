@@ -1,39 +1,51 @@
-const assert = require("assert");
+const { existsSync } = require("fs");
+const path = require("path");
 
-const assertTestCase = (testFunction) => (input, expected) => {
-  const testResult = testFunction(input);
+// https://stackoverflow.com/questions/37521893/determine-if-a-path-is-subdirectory-of-another-in-node-js
+function isPathParent(parent, potentialChild) {
+  const relative = path.relative(parent, potentialChild);
 
-  assert.strictEqual(
-    testResult,
-    expected,
-    `Expected "${expected}" from input "${input}", but received "${testResult}".`
-  );
-};
+  return relative && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
 
 module.exports = async function (helper) {
-  let context;
+  const { TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD } = helper.env;
+  const newDirPath = helper.getNormalizedInput("newDirPath", {
+    lowerCase: false,
+  });
 
   try {
-    context = await helper.pullVarsFromQuestIdeUserCodeLocalScope(
-      ["differenceMinMax"],
-      "difference-max-min"
-    );
+    if (!newDirPath) {
+      helper.fail(
+        "You need to provide the path to your new directory in the Hack Interface!"
+      );
+      return;
+    }
 
-    assert(
-      context.differenceMinMax,
-      "The function differenceMinMax is not defined!"
-    );
+    if (!existsSync(newDirPath)) {
+      helper.fail(
+        `TwilioQuest cannot locate a directory at the path you entered, "${newDirPath}".`
+      );
+      return;
+    }
 
-    const test = assertTestCase(context.differenceMinMax);
-
-    test([1, 2, 3, 4, 5], 4);
-    test([100, 0], 100);
-    test([3.3, 5, -2, 5], 7);
-    test([8, 1.2, 5, 9], 7.8);
+    if (!isPathParent(TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD, newDirPath)) {
+      helper.fail(
+        `TwilioQuest found your new directory "${newDirPath}", but it should be created within the present working directory you made previously "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD}".`
+      );
+      return;
+    }
   } catch (err) {
-    helper.fail(err);
+    helper.fail(`An error occurred while TwilioQuest was trying to validate your present working directory.
+    
+    ${err}`);
     return;
   }
 
-  helper.success("You did it!");
+  helper.success("TwiloQuest was able to find your new directory! Good job!", [
+    {
+      name: "DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR",
+      value: newDirPath,
+    },
+  ]);
 };
