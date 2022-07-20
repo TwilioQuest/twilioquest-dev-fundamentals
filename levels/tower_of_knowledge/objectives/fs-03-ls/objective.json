@@ -1,12 +1,12 @@
 {
-  "title": "Find Another Directory",
-  "description": "Find another directory on your computer.",
+  "title": "Find Another Directory or File",
+  "description": "Find another directory or file on your computer.",
   "validation_fields": [
     {
-      "name": "directoryName",
+      "name": "directoryOrFileName",
       "type": "text",
       "placeholder": "directory",
-      "label": "Enter the name of a directory."
+      "label": "Enter the name of a directory or file."
     }
   ],
   "show_ide": true,

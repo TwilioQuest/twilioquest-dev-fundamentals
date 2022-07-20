@@ -1,39 +1,51 @@
-const assert = require("assert");
+const { existsSync } = require("fs");
+const path = require("path");
 
-const assertTestCase = (testFunction) => (input, expected) => {
-  const testResult = testFunction(input);
-
-  assert.strictEqual(
-    testResult,
-    expected,
-    `Expected "${expected}" from input "${input}", but received "${testResult}".`
-  );
-};
+// NOTE: There is a theoretical softlock state on this validator
+// if the user picked a present working directory in the previous
+// objective that has no files or directories within it.
+//
+// This should be unlikely, as most terminals are going to open to
+// a home directory.
+//
+// If this does happen, we could guide the user to fix this problem
+// by changing their TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD to a new
+// directory that actually does contain files and/or directories.
 
 module.exports = async function (helper) {
-  let context;
+  const { TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD } = helper.env;
+  const directoryOrFileName = helper.getNormalizedInput("directoryOrFileName", {
+    lowerCase: false,
+  });
+  let absolutePathToDirOrFile;
 
   try {
-    context = await helper.pullVarsFromQuestIdeUserCodeLocalScope(
-      ["differenceMinMax"],
-      "difference-max-min"
+    if (!directoryOrFileName) {
+      helper.fail(
+        "You need to provide the name of a directory or file in the Hack Interface!"
+      );
+      return;
+    }
+
+    absolutePathToDirOrFile = path.join(
+      TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD,
+      directoryOrFileName
     );
 
-    assert(
-      context.differenceMinMax,
-      "The function differenceMinMax is not defined!"
-    );
-
-    const test = assertTestCase(context.differenceMinMax);
-
-    test([1, 2, 3, 4, 5], 4);
-    test([100, 0], 100);
-    test([3.3, 5, -2, 5], 7);
-    test([8, 1.2, 5, 9], 7.8);
+    if (!existsSync(absolutePathToDirOrFile)) {
+      helper.fail(
+        `TwilioQuest cannot locate the directory or file you entered, "${directoryOrFileName}", in your earlier entered present working directory "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD}".`
+      );
+      return;
+    }
   } catch (err) {
-    helper.fail(err);
+    helper.fail(`An error occurred while TwilioQuest was trying to validate your present working directory.
+    
+    ${err}`);
     return;
   }
 
-  helper.success("You did it!");
+  helper.success(
+    `TwiloQuest was able to find your file or directory at the path "${absolutePathToDirOrFile}". Well done!`
+  );
 };

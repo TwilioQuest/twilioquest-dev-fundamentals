@@ -81,7 +81,7 @@ module.exports = function (event, world) {
   // Match objectives to shelves they should unlock when an
   // objective completion event occurs.
   const unlockPairs = [
-    ["fs-03-ls", "fs-shelf-1"],
+    ["fs-03-ls", "fs-shelf-2"],
     ["fs-04-cd", "fs-shelf-3"],
     ["fs-05-mkdir", "fs-shelf-4"],
   ];
@@ -110,13 +110,14 @@ module.exports = function (event, world) {
 
   // Hide entities
   worldState.fileSystem.hiddenEntities.forEach((hiddenEntityKey) => {
-    world.hiddenEntities(hiddenEntityKey);
+    world.hideEntities(hiddenEntityKey);
   });
 
   // Open doors
   worldState.fileSystem.openedDoors.forEach((openedDoorKey) => {
-    world.forEachEntities(openedDoorKey, (door) =>
-      door.state.fsm.action("open")
+    world.forEachEntities(
+      openedDoorKey,
+      (door) => door.state && door.state.fsm && door.state.fsm.action("open")
     );
   });
 
