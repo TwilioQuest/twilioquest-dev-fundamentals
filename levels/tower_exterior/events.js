@@ -93,15 +93,24 @@ module.exports = function (event, world) {
     event.name === "playerDidInteract" &&
     event.target.key === "door-dev-tower"
   ) {
-    if (toolboxCountFound >= TOOLBOX_COUNT_TO_FIND) {
+    if (worldState.towerExterior.openedPainPointCollector) {
+      world.showNotification("The tower is open now!");
+    } else if (toolboxCountFound >= TOOLBOX_COUNT_TO_FIND) {
       world.showNotification(
-        'I guess The Librarian still needs more time to finish tidying up... <span class="highlight">I should come back in a future game update!</span>'
+        'I should speak to the <span class="highlight">Cloud Explorer</span> now that the <span class="highlight">New Developer Pain Point Collector</span> is fixed!'
       );
     } else {
       world.showNotification(
         "The tower doors won't budge... I should keep looking around and see if there's a way to open them."
       );
     }
+  }
+
+  if (worldState.towerExterior.openedPainPointCollector) {
+    world.forEachEntities("door-dev-tower", (door) => {
+      door.state && door.state.fsm && door.state.fsm.action("open");
+      door.interactable = false;
+    });
   }
 
   world.setState(WORLD_STATE_KEY, worldState);
