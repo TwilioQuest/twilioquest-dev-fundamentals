@@ -78,6 +78,14 @@ module.exports = function (event, world) {
     }
   );
 
+  if (
+    event.name === "playerDidInteract" &&
+    event.target.key === "play-video-tv"
+  ) {
+    world.showNotification("This is where the YouTube video goes.");
+    worldState.fileSystem.hiddenEntities.push("watch-video-blocker");
+  }
+
   // Match objectives to shelves they should unlock when an
   // objective completion event occurs.
   const unlockPairs = [
