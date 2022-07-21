@@ -36,21 +36,24 @@ conversation(display_name="Cloud Explorer")
     when "is_lucky"
       statement#we_cant_get_in
       responses
-        response#what_can_i_do.
-          Is there nothing to do here then?
-    
-    when "ill_find_toolboxes"
-    when "what_can_i_do"
-      statement#find_toolboxes
-      responses
         response#what_is_collector.
           New Developer Pain Point Collector? That's a mouthful! What is that?
 
     when "what_is_collector"
       statement#collector_is
       responses
+        response#what_can_i_do.
+          What can I do to help get it working?
+    
+    when "what_can_i_do"
+      statement#find_toolboxes
+      responses
         response#ill_find_toolboxes.
-          I guess I'll start searching for those toolboxes then!
+            I guess I'll start searching for those toolboxes then!
+    
+    when "ill_find_toolboxes"
+      statement#thats_the_spirit
+      responses
 
   statements
     statement#default
@@ -67,10 +70,13 @@ conversation(display_name="Cloud Explorer")
         Of course! I have no reason to be here to learn the secrets of the cloud for my own personal gains. I'm here to help someone in need!
     statement#we_cant_get_in
       text.
-        Well... This is awkward... But I don't think we can! At least <span class="highlight">not until a future update of TwilioQuest!</span>
+        Well... This is awkward... But I don't think we can! At least not until we fix this <span class="highlight">New Developer Pain Point Collector!</span>
     statement#find_toolboxes
       text.
-        Well, actually, I did lose a bunch of toolboxes when I landed on the planet. If you could find <span class="highlight">three</span> of them, then I could fix my <span class="highlight">New Developer Pain Point Collector</span>.
+        Well, I lost a bunch of toolboxes when I landed on the planet. If you could find <span class="highlight">three</span> of them, then I could fix the <span class="highlight">New Developer Pain Point Collector</span>.
     statement#collector_is
       text.
         Oh, you'll love it! It's this handy little device lets me get answers to all sorts of questions, theoretically... I just need to get it working first!
+    statement#thats_the_spirit
+      text.
+        That's the spirit! I'll just be right here... uh... Supervising! 

@@ -1,0 +1,16 @@
+{
+  "title": "Find Your Home Directory",
+  "description": "Open your terminal and figure out your present working directory.",
+  "validation_fields": [
+    {
+      "name": "pwd",
+      "type": "text",
+      "placeholder": "/path/looks/like/this",
+      "label": "Enter your present working directory."
+    }
+  ],
+  "show_ide": true,
+  "rewards": {
+    "xp": 100
+  }
+}

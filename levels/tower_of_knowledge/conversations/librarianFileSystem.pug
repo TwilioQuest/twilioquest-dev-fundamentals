@@ -1,0 +1,26 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="The Librarian")
+  case lastResponse
+    when "what_learn"
+      statement#watch_video
+      responses
+
+    default
+      statement#default
+      responses
+        response#what_learn.
+          Oh, what can I learn here?
+
+  statements
+    statement#default
+      text.
+        Welcome to the first floor of my library, the <span class="highlight">File System Fundamentals</span> collection!
+    statement#watch_video
+      text.
+        If you've ever wondered "What is a file system and why should I care?" then this floor of the library is here to help!
+        <br/><br/>
+        Watch the video cassette loaded into this TV to get started!
+
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);

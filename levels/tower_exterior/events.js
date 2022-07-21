@@ -1,14 +1,21 @@
 const merge = require("lodash.merge");
+const updateQuestStatus = require("./events/updateQuestStatus");
 const viewTower = require("./events/viewTower");
 
 const WORLD_STATE_KEY = "com.twilioquest.developer-fundamentals";
 const TOOLBOX_COUNT_TO_FIND = 3;
+const toolBoxContents = [
+  'This box contains a diagram labeled "file tree". Maybe there will be a nice forest inside the tower?',
+  'This box contains a weird bunch of text called a "terminal". This must be how the dinosaurs used computers!',
+  'This box contains a list of "shells". I wonder if they\'ll be sold over by the seashore.',
+];
 
 const INITIAL_STATE = {
   towerExterior: {
     hasStartedInitialTowerTween: false,
     playerWantsToLearn: "",
     toolboxesFound: [],
+    openedPainPointCollector: false,
   },
 };
 
@@ -46,15 +53,19 @@ module.exports = function (event, world) {
     if (toolboxCountFound >= TOOLBOX_COUNT_TO_FIND) {
       // There are 6 toolboxes, player can find more than 3.
       world.showNotification(
-        'I\'ve found all the toolboxes I needed to fix the <span class="highlight">New Developer Pain Point Collector!</span>'
+        `${
+          toolBoxContents[toolboxCountFound - 1]
+        } <br/><br/> I\'ve found all the toolboxes I needed to fix the <span class="highlight">New Developer Pain Point Collector!</span>`
       );
     } else {
       const remainingToolBoxes = TOOLBOX_COUNT_TO_FIND - toolboxCountFound;
 
       world.showNotification(
-        `I still need to find ${remainingToolBoxes} more toolbox${
+        `${
+          toolBoxContents[toolboxCountFound - 1]
+        } <br/><br/> <span class="highlight">I still need to find ${remainingToolBoxes} more toolbox${
           remainingToolBoxes > 1 ? "es" : ""
-        }!`
+        }!</span>`
       );
     }
   }
@@ -83,16 +94,27 @@ module.exports = function (event, world) {
     event.name === "playerDidInteract" &&
     event.target.key === "door-dev-tower"
   ) {
-    if (toolboxCountFound >= TOOLBOX_COUNT_TO_FIND) {
+    if (worldState.towerExterior.openedPainPointCollector) {
+      world.showNotification("The tower is open now!");
+    } else if (toolboxCountFound >= TOOLBOX_COUNT_TO_FIND) {
       world.showNotification(
-        'I guess The Librarian still needs more time to finish tidying up... <span class="highlight">I should come back in a future game update!</span>'
+        'I should speak to the <span class="highlight">Cloud Explorer</span> now that the <span class="highlight">New Developer Pain Point Collector</span> is fixed!'
       );
     } else {
       world.showNotification(
-        'The tower doors won\'t budge... <span class="highlight">I should come back in a future game update!</span>'
+        "The tower doors won't budge... I should keep looking around and see if there's a way to open them."
       );
     }
   }
+
+  if (worldState.towerExterior.openedPainPointCollector) {
+    world.forEachEntities("door-dev-tower", (door) => {
+      door.state && door.state.fsm && door.state.fsm.action("open");
+      door.interactable = false;
+    });
+  }
+
+  updateQuestStatus({ event, world, worldState, TOOLBOX_COUNT_TO_FIND });
 
   world.setState(WORLD_STATE_KEY, worldState);
 };

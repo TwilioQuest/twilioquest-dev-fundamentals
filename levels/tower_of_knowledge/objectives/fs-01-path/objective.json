@@ -1,0 +1,16 @@
+{
+  "title": "Finding your Path",
+  "description": "Find the path to a file.",
+  "validation_fields": [
+    {
+      "name": "filePath",
+      "type": "text",
+      "placeholder": "/path/to/a/file.txt",
+      "label": "Enter the file path to Cedric's YouTube video."
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}

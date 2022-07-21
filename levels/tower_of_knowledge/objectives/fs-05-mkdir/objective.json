@@ -1,0 +1,16 @@
+{
+  "title": "Making our Own Directories",
+  "description": "Create a new directory where we can put our own files.",
+  "validation_fields": [
+    {
+      "name": "newDirPath",
+      "type": "text",
+      "placeholder": "/path/to/directory",
+      "label": "What is the file path to the directory you just made?"
+    }
+  ],
+  "show_ide": true,
+  "rewards": {
+    "xp": 100
+  }
+}
