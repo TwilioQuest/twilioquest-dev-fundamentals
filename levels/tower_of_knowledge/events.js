@@ -96,21 +96,20 @@ module.exports = function (event, world) {
     event.name === "playerDidInteract" &&
     event.target.key === "play-video-tv"
   ) {
-    world.showNotification(
-      'Hmm... It seems like there\'s nothing in the cassette player! I should come back in <span class="highlight">a future game update</span>. <br/><br/> In the meantime, I should move on!'
-    );
-    // world.showOverlayComponent({
-    //   key: "iframe",
-    //   props: {
-    //     url: "https://www.youtube.com/embed/X-E3fL4LHbM",
-    //     shouldUseTqChrome: true,
-    //     title: "YouTube Video Name",
-    //     width: "80vw",
-    //     height: "80vh",
-    //     fadeIn: true,
-    //     fadeOut: true,
-    //   },
-    // });
+    world.showOverlayComponent({
+      key: "iframe",
+      props: {
+        // TODO: File System Embed URL goes here:
+        // This is a dummy URL for now.
+        url: "https://www.youtube.com/embed/X-E3fL4LHbM",
+        shouldUseTqChrome: true,
+        title: "YouTube Video Name",
+        width: "80vw",
+        height: "80vh",
+        fadeIn: true,
+        fadeOut: true,
+      },
+    });
 
     markTvAsViewed(worldState);
   }
