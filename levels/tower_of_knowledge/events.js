@@ -19,6 +19,15 @@ const hasViewedTv = (worldState) => {
   return worldState.fileSystem.hiddenEntities.includes("watch-video-blocker");
 };
 
+const markTvAsViewed = (worldState) => {
+  if (hasViewedTv(worldState)) {
+    // No edits necessary!
+    return;
+  }
+
+  worldState.fileSystem.hiddenEntities.push("watch-video-blocker", "tv-arrow");
+};
+
 const createChangeFloorHandler = (world, warpTarget) => () => {
   const worldState = world.getState(WORLD_STATE_KEY);
   worldState.elevator.isTransitioning = true;
@@ -100,7 +109,8 @@ module.exports = function (event, world) {
         fadeOut: true,
       },
     });
-    worldState.fileSystem.hiddenEntities.push("watch-video-blocker");
+
+    markTvAsViewed(worldState);
   }
 
   if (

@@ -2,27 +2,25 @@
 
 conversation(display_name="The Librarian")
   case lastResponse
-    when "what_is_place"
-      statement#this_place
+    when "what_learn"
+      statement#watch_video
       responses
-        response#how_learn.
-          Wow! That's a lofty goal! Can I learn from some of your knowledge?
 
     default
       statement#default
       responses
-        response#what_is_place.
-          Thank you! What is this place?
+        response#what_learn.
+          Oh, what can I learn here?
 
   statements
     statement#default
       text.
-        Greetings, developer! Welcome to <span class="highlight">The Tower of Infinite Knowledge!</span>
-    statement#this_place
+        Welcome to the first floor of my library, the <span class="highlight">File System Fundamentals</span> collection!
+    statement#watch_video
       text.
-        <span class="highlight">The Tower of Infinite Knowledge</span> is an eternally expanding library.
+        If you've ever wondered "What is a file system and why should I care?" then this floor of the library is here to help!
         <br/><br/>
-        As The Librarian, my goal is to contain all of the knowledge required to become a developer within its walls.
+        Watch the video cassette loaded into this TV to get started!
 
 
 - setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);
