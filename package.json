@@ -1,7 +1,7 @@
 {
   "name": "twilioquest-dev-fundamentals",
   "description": "This is TwilioQuest extension for the dev fundamentals mission.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "engines": {
     "twilioquest": "3.1.44"
   },
