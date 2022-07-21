@@ -127,6 +127,12 @@
                  "height":96,
                  "id":230,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"conversation",
+                         "type":"string",
+                         "value":"librarianIntro"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,

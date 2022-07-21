@@ -1,9 +1,8 @@
-- const worldState = getState('com.twilioquest.developer-fundamentals');
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
 
-conversation(display_name="Cloud Explorer")
+conversation(display_name="The Librarian")
   case lastResponse
     when "wait_i_helped"
-      - worldState.towerExterior.openedPainPointCollector = true;
       statement#survey
       responses
 
@@ -24,4 +23,4 @@ conversation(display_name="Cloud Explorer")
         <br/>
         <a href="https://airtable.com/shr9X0OZGeoEjcsob">CLICK HERE TO OPEN THE NEW DEVELOPER PAIN POINT COLLECTOR</a>
 
-- setState('com.twilioquest.developer-fundamentals', worldState);
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);
