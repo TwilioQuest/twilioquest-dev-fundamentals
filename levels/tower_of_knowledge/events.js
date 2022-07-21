@@ -99,11 +99,9 @@ module.exports = function (event, world) {
     world.showOverlayComponent({
       key: "iframe",
       props: {
-        // TODO: File System Embed URL goes here:
-        // This is a dummy URL for now.
-        url: "https://www.youtube.com/embed/X-E3fL4LHbM",
+        url: "https://www.youtube.com/embed/2zLQwOiIac8",
         shouldUseTqChrome: true,
-        title: "YouTube Video Name",
+        title: "What is the file system and why should I learn about it?",
         width: "80vw",
         height: "80vh",
         fadeIn: true,
