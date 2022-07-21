@@ -16,7 +16,7 @@ const INITIAL_STATE = {
 };
 
 const hasViewedTv = (worldState) => {
-  return worldState.fileSystem.includes("watch-video-blocker");
+  return worldState.fileSystem.hiddenEntities.includes("watch-video-blocker");
 };
 
 const createChangeFloorHandler = (world, warpTarget) => () => {
@@ -87,18 +87,26 @@ module.exports = function (event, world) {
     event.name === "playerDidInteract" &&
     event.target.key === "play-video-tv"
   ) {
-    world.showNotification("This is where the YouTube video goes.");
-    // world.showOverlayComponent({
-    //   key: "iframe",
-    //   props: { url: "https://www.youtube.com/embed/X-E3fL4LHbM" },
-    // });
+    // world.showNotification("This is where the YouTube video goes.");
+    world.showOverlayComponent({
+      key: "iframe",
+      props: {
+        url: "https://www.youtube.com/embed/X-E3fL4LHbM",
+        shouldUseTqChrome: true,
+        title: "YouTube Video Name",
+        width: "80vw",
+        height: "80vh",
+        fadeIn: true,
+        fadeOut: true,
+      },
+    });
     worldState.fileSystem.hiddenEntities.push("watch-video-blocker");
   }
 
   if (
     event.name === "triggerAreaWasEntered" &&
-    event.target.key === "triggerViewTv" //&&
-    // !hasViewedTv(worldState)
+    event.target.key === "triggerViewTv" &&
+    !hasViewedTv(worldState)
   ) {
     viewTv(world);
   }

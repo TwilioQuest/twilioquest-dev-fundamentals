@@ -92,7 +92,7 @@
                  "type":"player",
                  "visible":true,
                  "width":0,
-                 "x":384,
+                 "x":366,
                  "y":342
                 }, 
                 {
@@ -1058,23 +1058,6 @@
                  "y":390
                 }, 
                 {
-                 "height":48,
-                 "id":303,
-                 "name":"triggerViewTv",
-                 "properties":[
-                        {
-                         "name":"key",
-                         "type":"string",
-                         "value":"triggerViewTv"
-                        }],
-                 "rotation":0,
-                 "type":"triggerArea",
-                 "visible":true,
-                 "width":180,
-                 "x":312,
-                 "y":414
-                }, 
-                {
                  "height":0,
                  "id":304,
                  "name":"viewpoint_tv",
@@ -1093,7 +1076,7 @@
                  "y":342
                 }, 
                 {
-                 "height":102,
+                 "height":192,
                  "id":305,
                  "name":"triggerViewTv",
                  "properties":[
@@ -1105,8 +1088,8 @@
                  "rotation":0,
                  "type":"triggerArea",
                  "visible":true,
-                 "width":60,
-                 "x":444,
+                 "width":72,
+                 "x":432,
                  "y":360
                 }, 
                 {
@@ -1310,7 +1293,7 @@
                  "value":true
                 }],
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":33,
          "x":0,
          "y":0
