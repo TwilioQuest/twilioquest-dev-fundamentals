@@ -1,4 +1,5 @@
 const merge = require("lodash.merge");
+const viewTv = require("./events/viewTv");
 
 const WORLD_STATE_KEY =
   "com.twilioquest.developer-fundamentals.tower_of_knowledge";
@@ -12,6 +13,10 @@ const INITIAL_STATE = {
     hiddenEntities: [],
     openedDoors: [],
   },
+};
+
+const hasViewedTv = (worldState) => {
+  return worldState.fileSystem.includes("watch-video-blocker");
 };
 
 const createChangeFloorHandler = (world, warpTarget) => () => {
@@ -83,7 +88,19 @@ module.exports = function (event, world) {
     event.target.key === "play-video-tv"
   ) {
     world.showNotification("This is where the YouTube video goes.");
+    // world.showOverlayComponent({
+    //   key: "iframe",
+    //   props: { url: "https://www.youtube.com/embed/X-E3fL4LHbM" },
+    // });
     worldState.fileSystem.hiddenEntities.push("watch-video-blocker");
+  }
+
+  if (
+    event.name === "triggerAreaWasEntered" &&
+    event.target.key === "triggerViewTv" //&&
+    // !hasViewedTv(worldState)
+  ) {
+    viewTv(world);
   }
 
   // Match objectives to shelves they should unlock when an
