@@ -2,25 +2,38 @@
 
 conversation(display_name="The Librarian")
   case lastResponse
-    when "wait_i_helped"
-      statement#survey
+    when "how_learn"
+      statement#select_floor
       responses
+
+    when "what_is_place"
+      statement#this_place
+      responses
+        response#how_learn.
+          Wow! That's a lofty goal! Can I learn from some of your knowledge?
 
     default
       statement#default
       responses
-        response#wait_i_helped.
-          Hey, wait! I helped too! Ah, never mind... How do we use it?
+        response#what_is_place.
+          Thank you! What is this place?
 
   statements
     statement#default
       text.
-        I've done it! I've fixed this <span class="highlight">New Developer Pain Point Collector</span> all by myself!
-    statement#survey
+        Greetings, developer! Welcome to <span class="highlight">The Tower of Infinite Knowledge!</span>
+    statement#this_place
       text.
-        It looks like some kind of... URL??? Wow, how quaint! Uh, you know, why don't you click on this first... 
-        <br/>
-        <br/>
-        <a href="https://airtable.com/shr9X0OZGeoEjcsob">CLICK HERE TO OPEN THE NEW DEVELOPER PAIN POINT COLLECTOR</a>
+        <span class="highlight">The Tower of Infinite Knowledge</span> is an eternally expanding library.
+        <br/><br/>
+        As The Librarian, my goal is to contain all of the knowledge required to become a developer within its walls.
+    statement#select_floor
+      text.
+        Indeed it is! But it's a goal worth striving for.
+        <br/><br/>
+        The entire purpose of collecting knowledge is to share it with others. All my effort accumulating information would be a waste otherwise.
+        <br/><br/>
+        If you'd like to see what the library has to offer <span class="highlight">check the blue elevator control panel</span> just past me.
+
 
 - setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);
