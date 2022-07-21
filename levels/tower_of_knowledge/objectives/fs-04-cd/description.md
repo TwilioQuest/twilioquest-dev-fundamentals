@@ -45,7 +45,27 @@ Enter these present working directories into the inputs on the right. Then click
 
 <% if(isWindows) { %>
 
-TODO: Implement Windows Text
+It's time to learn about our third file system related command. This one is called `cd` and it stands for "change directory". Like the name suggests, this will let us change which directory is our terminal's "present working directory".
+
+When you type `cd` into the terminal, and then you put the name of a directory after it your terminal will move or "change" to that new directory. This means when you run `pwd` afterward, you'll see the new directory.
+
+Here's an example of using `cd` from Cedric's file system:
+
+```bash
+$ pwd
+Path
+----
+cedric
+
+$ cd thank_you_drafts
+
+$ pwd
+Path
+----
+cedric/thank_you_drafts
+```
+
+> ⚠️ This only works if you try to move into a directory! It's not possible to move into a file. Your present working directory won't change if you try to `cd` into a file!
 
 <% } else { %>
 

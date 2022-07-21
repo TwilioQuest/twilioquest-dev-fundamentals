@@ -16,7 +16,11 @@ Now that we know where our terminal's home directory is on the file system, let'
 
 <% if(isWindows) { %>
 
-TODO: Implement Windows Text
+We're going to learn about our second command now. It's called `ls`. This command **L**i**S**ts the contents of a directory.
+
+If we run this command we'll see a list of words. These are all the names of files and directories inside our "present working directory" that we learned about in the last objective.
+
+Type `ls` into your terminal and then see what directories and files show up. Copy one of the directory or file names into the input on the right. Then click the _HACK_ button.
 
 <% } else { %>
 

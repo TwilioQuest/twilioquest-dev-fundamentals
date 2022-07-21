@@ -12,7 +12,7 @@
 </ul>
 </div>
 
-Now that you understand what a file path is, it's time to figure out where you're working from. Let's get into the terminal and find out!
+Now that you understand what a filepath is, it's time to figure out where you're working from. Let's get into the terminal and find out!
 
 Open up the program `<%= isWindows ? "PowerShell" : "Terminal" %>`. You'll see a blank screen with a blinking cursor on it and not much else. This is your terminal!
 
@@ -20,20 +20,20 @@ The terminal is a powerful tool in the developer tool belt. It can also be an ov
 
 > 💡 You'll be able to learn more about how terminals work on a future floor of the **Tower of Infinite Knowledge**! The rest of this current floor will assume that you have some familiarity with a terminal.
 
-A terminal is a program with a [text interface](https://en.wikipedia.org/wiki/Text-based_user_interface) instead a [graphical interface](https://en.wikipedia.org/wiki/Graphical_user_interface). Most programs you've used until now (like Spotify or Chrome) have probably had a graphical interface!
+Most programs you've used until now (like Spotify or Chrome) have a **graphical interface**, which is usually controlled through moving the mouse and clicking on controls such as buttons and images. The terminal is a **text interface**, which you control by entering commands.
 
-To do stuff in a **graphical interface** you click around on images and buttons.
-
-To do stuff in a **text interface** you type commands (special keywords) into the terminal.
+When working in the terminal, you are always "in" a directory. We'll soon learn how to move around between directories, but for now, let's learn how to find out where we are.
 
 <% if(isWindows) { %>
 
-TODO: Implement Windows Text
+This is where our first command, `pwd`, comes in! This command stands for "present working directory". It will tell us the filepath to the directory our terminal is working in.
+
+Type `pwd` into your terminal and then see what filepath shows up. Copy that filepath into the input on the right. Then click the _HACK_ button.
 
 <% } else { %>
 
-This is where our first command, `pwd`, comes in! This command stands for "present working directory". It will tell us the file path to the directory our terminal is working in.
+This is where our first command, `pwd`, comes in! This command stands for "present working directory". It will tell us the filepath to the directory our terminal is working in.
 
-Type `pwd` into your terminal and then see what file path shows up. Copy that file path into the input on the right. Then click the _HACK_ button.
+Type `pwd` into your terminal and then see what filepath shows up. Copy that filepath into the input on the right. Then click the _HACK_ button.
 
 <% } %>

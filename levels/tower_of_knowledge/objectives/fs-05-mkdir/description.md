@@ -16,7 +16,23 @@ Now that we can change into existing directories, lets learn how to make our own
 
 <% if(isWindows) { %>
 
-TODO: Implement Windows Text
+We will be using the `mkdir`, or "make directory" command to accomplish this task. To use `mkdir` you write the name of the directory you want to create after the command in the terminal.
+
+Here's an example of creating a directory called "test_directory". We also use `ls` before and after to confirm that the new directory has been made.
+
+```bash
+$ ls
+old_directory
+
+$ mkdir new_directory
+
+$ ls
+old_directory new_directory
+```
+
+To complete this objective, use `mkdir` to create a new directory with a name of your choosing. Then, find the filepath that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
+
+Once you've found it, enter the file path to your new directory in the input on the right. Then click the _HACK_ button.
 
 <% } else { %>
 
@@ -34,7 +50,7 @@ $ ls
 old_directory new_directory
 ```
 
-To complete this objective, use `mkdir` to create a new directory with a name of your choosing. Then, find the file path that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
+To complete this objective, use `mkdir` to create a new directory with a name of your choosing. Then, find the filepath that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
 
 Once you've found it, enter the file path to your new directory in the input on the right. Then click the _HACK_ button.
 
