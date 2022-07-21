@@ -6,7 +6,7 @@
 <h3>Requirements</h3>
 <ul>
   <li>Open your terminal.</li>
-  <li>Type in the command <b><%= isWindows ? "TODO" : "ls" %></b>.</li>
+  <li>Type in the command <b>ls</b>.</li>
   <li>Copy the name of one of the files or directories into the input on the right.</li>
   <li>Once you're done, press <em>HACK</em>.</li>
 </ul>

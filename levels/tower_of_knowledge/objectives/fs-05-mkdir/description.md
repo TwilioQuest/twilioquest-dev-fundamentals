@@ -5,7 +5,7 @@
 <div class="aside">
 <h3>Requirements</h3>
 <ul>
-  <li>Make a new directory with `<%= isWindows ? "TODO" : "mkdir" %>`.</li>
+  <li>Make a new directory with <b>mkdir</b>.</li>
   <li>Get the file path to this directory.</li>
   <li>Enter this file path into the input on the right.</li>
   <li>Once you're done, press <em>HACK</em>.</li>

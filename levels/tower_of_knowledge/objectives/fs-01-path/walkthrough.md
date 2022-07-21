@@ -11,7 +11,7 @@ For example, if we create a file called `about_me.md` in a directory called `por
 
 In reality, if you create this directory and this file on your own computer, the filepath would be longer. That is because you would likely create this file in your user account, inside your Documents or home directory. The filepath would also contain those directories, as well:
 
-`<%= isWindows ? `C:\Users\Cedric\portfolio\about_me.md`:`/home/Cedric/portfolio/about_me` %>`
+`<%= isWindows ? `C:\\Users\\Cedric\\portfolio\\about_me.md`:`/home/Cedric/portfolio/about_me` %>`
 
 The first directory in a filepath is called the **root directory**. This is because files are often visualized as the roots of a plant or tree, growing and branching outwards.
 
