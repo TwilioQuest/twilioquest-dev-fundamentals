@@ -1,4 +1,5 @@
 const merge = require("lodash.merge");
+const updateQuestStatus = require("./events/updateQuestStatus");
 const viewTower = require("./events/viewTower");
 
 const WORLD_STATE_KEY = "com.twilioquest.developer-fundamentals";
@@ -112,6 +113,8 @@ module.exports = function (event, world) {
       door.interactable = false;
     });
   }
+
+  updateQuestStatus({ event, world, worldState, TOOLBOX_COUNT_TO_FIND });
 
   world.setState(WORLD_STATE_KEY, worldState);
 };

@@ -1,15 +1,17 @@
+<% const isWindows = context.systemInfo.os === 'win32'; %>
+
 # What is a filepath?
 
 Your computer stores data in files. There are many different kinds of files, from plaintext files (usually ending in .txt), to music and video (.mp3 and .mp4), or even whole applications. Your computer will contain and use many files, and so it is helpful to organize them in directories, or folders. You can put files, and even other directories, inside directories.
 
 Filepaths are like maps to files on your computer. A file's path contains all of the directories you have to go through to find the file. Each directory in the path is a step in the journey to the file. Every file and directory on your computer has a path.
 
-For example, if we create a file called "about_me.md" in a directory called "portfolio", the file's path might be:
-`/portfolio/about_me.md`
+For example, if we create a file called `about_me.md` in a directory called `portfolio`, the file's path might be:
+<%= `\`${formatPathPartsForOs('portfolio', 'about_me.md')}\``%>
 
 In reality, if you create this directory and this file on your own computer, the filepath would be longer. That is because you would likely create this file in your user account, inside your Documents or home directory. The filepath would also contain those directories, as well:
 
-<%= isWindows ? `C:\Users\Cedric\portfolio\about_me.md`| `/home/Cedric/portfolio/about_me` %>
+`<%= isWindows ? `C:\Users\Cedric\portfolio\about_me.md`:`/home/Cedric/portfolio/about_me` %>`
 
 The first directory in a filepath is called the **root directory**. This is because files are often visualized as the roots of a plant or tree, growing and branching outwards.
 
@@ -45,8 +47,8 @@ cedric/
 └── my_cool_drawing.png
 ```
 
-This is an example of a file tree. "cedric/" is the root directory, containing all of the other directories and files in the tree. "robot_thoughts/" and "thank_you_drafts/" are other directories in the tree, which you can tell by both the fact they contain files, and end with a slash. Only directories can contain files, files cannot contain other files. Cedric's Youtube video is in the "robot_thoughts/" directory.
+This is an example of a file tree. `cedric/` is the root directory, containing all of the other directories and files in the tree. `robot_thoughts/` and `thank_you_drafts/` are other directories in the tree, which you can tell by both the fact they contain files, and end with a slash. Only directories can contain files, files cannot contain other files. Cedric's Youtube video is in the `robot_thoughts/` directory.
 
 Many files have a "file extension", that tells the user, and programs on the computer, what to expect that file to contain. Cedric's Youtube video has a file extension of ".mp4", which tells us, and the computer, that it is a video file. Your computer will use this extension to choose the right program to open the file with.
 
-To work out the filepath, start at the root directory, and walk through the tree, adding each directory on as you go. The filepath ends with the file, "youtube_video.mp4". Each directory in the tree is separated with a slash.
+To work out the filepath, start at the root directory, and walk through the tree, adding each directory on as you go. The filepath ends with the file, `youtube_video.mp4`. Each directory in the tree is separated with a slash.

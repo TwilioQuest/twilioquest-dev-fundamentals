@@ -1,3 +1,5 @@
+<% const isWindows = context.systemInfo.os === 'win32'; %>
+
 # Listing directory contents
 
 `ls` lets us list the current directory contents. It will display both files, and directories. To complete this objective, enter the `ls` command in your terminal, and enter any file or directory that you see.
