@@ -46,6 +46,6 @@ module.exports = async function (helper) {
   }
 
   helper.success(`
-  You found Cedric's YouTube video! He'll be delighted to hear about this!
+    Hurray! You figured out the new present working directories correctly!
 `);
 };
