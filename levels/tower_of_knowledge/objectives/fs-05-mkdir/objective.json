@@ -9,7 +9,7 @@
       "label": "What is the file path to the directory you just made?"
     }
   ],
-  "show_ide": true,
+  "show_ide": false,
   "rewards": {
     "xp": 100
   }

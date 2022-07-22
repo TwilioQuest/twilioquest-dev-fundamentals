@@ -15,7 +15,7 @@
       "label": "What is the present working directory in scenario #2?"
     }
   ],
-  "show_ide": true,
+  "show_ide": false,
   "rewards": {
     "xp": 100
   }
