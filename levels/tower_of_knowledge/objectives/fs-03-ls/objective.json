@@ -9,7 +9,7 @@
       "label": "Enter the name of a directory or file."
     }
   ],
-  "show_ide": true,
+  "show_ide": false,
   "rewards": {
     "xp": 100
   }

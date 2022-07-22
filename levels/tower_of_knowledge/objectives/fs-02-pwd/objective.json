@@ -9,7 +9,7 @@
       "label": "Enter your present working directory."
     }
   ],
-  "show_ide": true,
+  "show_ide": false,
   "rewards": {
     "xp": 100
   }
