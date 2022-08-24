@@ -13,6 +13,9 @@ const INITIAL_STATE = {
     hiddenEntities: [],
     openedDoors: [],
   },
+  terminal: {
+    hasViewedTv: false,
+  },
 };
 
 const hasViewedTv = (worldState) => {
@@ -70,6 +73,15 @@ module.exports = function (event, world) {
               "file-system",
             ]),
           },
+          {
+            title: "L2. Terminal Fundamentals",
+            description: "Learn what how to use your computer's Terminal.",
+            onSelect: createChangeFloorHandler(world, [
+              "tower_of_knowledge",
+              "player_entry1",
+              "terminal",
+            ]),
+          },
         ],
       },
     });
@@ -96,20 +108,39 @@ module.exports = function (event, world) {
     event.name === "playerDidInteract" &&
     event.target.key === "play-video-tv"
   ) {
-    world.showOverlayComponent({
-      key: "iframe",
-      props: {
-        url: "https://www.youtube.com/embed/2zLQwOiIac8",
-        shouldUseTqChrome: true,
-        title: "What is the file system and why should I learn about it?",
-        width: "80vw",
-        height: "80vh",
-        fadeIn: true,
-        fadeOut: true,
-      },
-    });
+    if (event.target.video === "terminal") {
+      world.showOverlayComponent({
+        key: "iframe",
+        props: {
+          url: "https://www.youtube.com/embed/lZ7Kix9bjPI",
+          shouldUseTqChrome: true,
+          title: "What is a terminal and why should I learn about it?",
+          width: "80vw",
+          height: "80vh",
+          fadeIn: true,
+          fadeOut: true,
+        },
+      });
 
-    markTvAsViewed(worldState);
+      worldState.terminal.hasViewedTv = true;
+    } else {
+      // Original video player implementation for the
+      // File System floor
+      world.showOverlayComponent({
+        key: "iframe",
+        props: {
+          url: "https://www.youtube.com/embed/2zLQwOiIac8",
+          shouldUseTqChrome: true,
+          title: "What is the file system and why should I learn about it?",
+          width: "80vw",
+          height: "80vh",
+          fadeIn: true,
+          fadeOut: true,
+        },
+      });
+
+      markTvAsViewed(worldState);
+    }
   }
 
   if (
