@@ -1,0 +1,26 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="The Librarian")
+  case lastResponse
+    when "what_learn"
+      statement#watch_video
+      responses
+
+    default
+      statement#default
+      responses
+        response#what_learn.
+          Oh, what can I learn here when it's done?
+
+  statements
+    statement#default
+      text.
+        Welcome to the second floor of my library, the <span class="highlight">Terminal</span> collection! As you can see... It's not finished yet!
+    statement#watch_video
+      text.
+        If you've ever wondered what it means to "pop open your terminal" then this floor of the library will help!
+        <br/><br/>
+        Watch the video cassette loaded into this TV to see what the rest of this floor will be about when it's done!
+
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);
