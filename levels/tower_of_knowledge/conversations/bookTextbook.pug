@@ -1,0 +1,57 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="Textbook of Infinite Expansions")
+  case lastResponse
+    when "chapter_2"
+      statement#chapter_2
+      responses
+        response#chapter_1.
+          Chapter 1: Construction
+
+    when "chapter_1"
+      statement#default
+      responses
+        response#chapter_2.
+          Chapter 2: Sources
+
+    default
+      statement#default
+      responses
+        response#chapter_2.
+          Chapter 2: Sources
+
+  statements
+    statement#default
+      text.
+        <span class="highlight">Chapter 1: Construction</span><br><br>
+        The Tower of Infinite Knowledge was not always a tower. 
+        But as the Librarian gathered knowledge according to her programming, 
+        it occurred to her that there was also value in sharing it. 
+        Her knowledge could empower others to become developers!<br><br>
+
+        So she first built the idea of the Tower; then she built the Tower itself, 
+        including the entire planet from which it extends.
+
+
+    statement#chapter_1
+      text.
+        <span class="highlight">Chapter 1: Construction</span><br><br>
+        The Tower of Infinite Knowledge was not always a tower. 
+        But as the Librarian gathered knowledge according to her programming, 
+        it occurred to her that there was also value in sharing it. 
+        Her knowledge could empower others to become developers!<br><br>
+
+        So she first built the idea of the Tower; then she built the Tower itself, 
+        including the entire planet from which it extends.
+        
+    statement#chapter_2
+      text.
+        <span class="highlight">Chapter 2: Sources</span><br><br>
+        When the Librarian became known as the builder of the Tower, 
+        travelers began to bring her knowledge. 
+        Archivists came to her with specialized information they wanted her 
+        to preserve. The Librarian herself conducted her own research into the needs 
+        of developers by launching a program, the New Developer Pain Point Collector, 
+        into the Cloud.
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);

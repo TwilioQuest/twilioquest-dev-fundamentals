@@ -43,6 +43,11 @@ const createChangeFloorHandler = (world, warpTarget) => () => {
 module.exports = function (event, world) {
   const worldState = merge(INITIAL_STATE, world.getState(WORLD_STATE_KEY));
 
+  //   // INTERACT BY KEY EVENT
+  // const runObjectNotification = ({ target: { key = "default" } }) => {
+  //   world.startConversation(key, key + ".png");
+  //   };
+
   if (
     event.name === "playerDidInteract" &&
     (event.target.key === "elevator-control" ||
@@ -103,6 +108,22 @@ module.exports = function (event, world) {
       shelf.sprite.body.height *= 2;
     }
   );
+
+  // if (event.name === "playerDidInteract") {
+  //   console.log(`Interacting with ${event.target.key}`);
+  
+  //   if (event.target.notify) runObjectNotification(event);
+  //   }
+  
+  // THIS WORKS FOR ONE INTERACTION:
+  // if (event.name === 'playerDidInteract' && event.target.key === 'bookManuscript') {
+  //   world.startConversation('bookManuscript', 'BookPodium_IlluminatedManuscript.png');
+  // }
+
+  // // FOR MULTIPLE INTERACTIONS
+  // if (event.name === 'playerDidInteract'){
+  //   world.startConversation(key, key + '.png');
+  // }
 
   if (
     event.name === "playerDidInteract" &&
