@@ -1,0 +1,16 @@
+{
+  "title": "Making our Own Files",
+  "description": "Create a file in our new directory.",
+  "validation_fields": [
+    {
+      "name": "newFileName",
+      "type": "text",
+      "placeholder": "fileName",
+      "label": "What is the name of your newly created file?"
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}
