@@ -6,7 +6,7 @@
 <h3>Requirements</h3>
 <ul>
 <% if(isWindows) { %>
-  <li>Make a new file with <b>copy null</b> in <b>cmd</b> or <b>ni</b> in <b>PowerShell</b>.</li>
+  <li>Make a new file with <b>ni</b>.</li>
 <%} else { %>
   <li>Make a new file with <b>touch</b>.</li>
 <% } %>
@@ -20,7 +20,7 @@ Now that we have a directory to play around with, let's look at making files!
 
 <% if(isWindows) { %>
 
-New files can be created using `copy null yourfilename` in `cmd` (the command prompt) or `ni yourfilename` in `PowerShell`.
+New files can be created using the `ni` command, which is an acronym for "new item". To create a new file, enter `ni` followed by the filename:  `ni yourfilename`.
 
 Here's an example of creating a text file called "cloud". We also use `ls` before and after to confirm that the new file has been made.
 
@@ -34,11 +34,11 @@ $ ls
 cloud.txt
 ```
 
-To complete this objective, use `copy null yourfilename` in `cmd` (the command prompt) or `ni yourfilename` in `PowerShell` to create a new file with a name of your choosing. Then, find the filepath that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
+To complete this objective, use or `ni yourfilename` to create a new file with a name of your choosing. Then, find the filepath that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
 
 <% } else { %>
 
-New files can be created using `touch`.
+There are multiple ways to create new files from the command line, but an easy and convenient one is the command `touch`. To create a new file with `touch`, enter the command, followed by the file name: `touch yourfilename`. `touch` is _actually_ a command for editing the access and modified times of a file, but if a file does not already exist, it will create the file.
 
 Here's an example of creating a text file called "cloud". We also use `ls` before and after to confirm that the new file has been made.
 
