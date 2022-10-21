@@ -20,13 +20,13 @@ Now that we have a directory to play around with, let's look at making files!
 
 <% if(isWindows) { %>
 
-New files can be created using the `ni` command, which is an acronym for "new item". To create a new file, enter `ni` followed by the filename:  `ni yourfilename`.
+New files can be created using the `ni` command, which is an acronym for "new item". To create a new file, enter `ni` followed by the filename: `ni yourfilename`.
 
 Here's an example of creating a text file called "cloud". We also use `ls` before and after to confirm that the new file has been made.
 
 ```bash
 $ ls
-*shouldn\'t print anything*
+*should not show anything*
 
 $ ni cloud.txt
 
@@ -34,7 +34,7 @@ $ ls
 cloud.txt
 ```
 
-To complete this objective, use or `ni yourfilename` to create a new file with a name of your choosing. Then, find the filepath that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
+To complete this objective, use or `ni yourfilename` to create a new file with a name of your choosing. Then, find the path that leads to this new file. You might want to use `cd` and `pwd` like you did in previous objectives!
 
 <% } else { %>
 
@@ -44,7 +44,7 @@ Here's an example of creating a text file called "cloud". We also use `ls` befor
 
 ```bash
 $ ls
-*shouldn\'t print anything*
+*should not show anything*
 
 $ touch cloud.txt
 
@@ -52,7 +52,7 @@ $ ls
 cloud.txt
 ```
 
-To complete this objective, use `touch` to create a new file with a name of your choosing. Then, find the filepath that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
+To complete this objective, use `touch` to create a new file with a name of your choosing. Then, find the path that leads to this new file. You might want to use `cd` and `pwd` like you did in previous objectives!
 
 Once you've found it, enter the path to your new file in the input on the right. Then click the _HACK_ button.
 

@@ -1,3 +1,5 @@
+<% const isWindows = context.systemInfo.os === 'win32'; %>
+
 # Creating files
 
 Often, when working with your filesystem in the command line or even a GUI file explorer, you will be working with files that already exist. You may be searching for and opening files that already exist, or choosing a location to save a new file from an application. However, particularly when starting new projects, it can be easier to create files quickly from the command line, as you set up your file structure. You may also create files as part of a sequence of commands, for example, you may create a file to hold the contents of another command.
@@ -19,16 +21,16 @@ After you enter the `ni` command to create a file, you will see some output abou
 
 "Mode" is the most complicated, and is a 6 character string that describes the file atrributes as "flags". These are options that can either be on, or off. When off, they are represented by a dash, "-". You will likely see a lot of dashes in your Powershell for the file you created. The 6 options are always in the same order, which is:
 
-* d - The file is a **directory**.
-* a - The file can be **archived**.
-* r - The file is **read-only**: it can't be edited.
-* h - The file is **hidden**. We'll learn more about this in a future objective.
-* s - The file is a **system** file, it may be required for the operating system and is probably protected.
-* l - The file is a **reparse point**. This can mean multiple things, the most common is a "symlink", which means a file that is just a pointer to another file.
+- d - The file is a **directory**.
+- a - The file can be **archived**.
+- r - The file is **read-only**: it can't be edited.
+- h - The file is **hidden**. We'll learn more about this in a future objective.
+- s - The file is a **system** file, it may be required for the operating system and is probably protected.
+- l - The file is a **reparse point**. This can mean multiple things, the most common is a "symlink", which means a file that is just a pointer to another file.
 
 For example, a folder's mode will be `d-----`. A file you can't edit will have a mode of `--r---`. Whilst you won't encounter them often, it's important to be aware that these properties exist. For example, if you find you can't edit a file you expect to edit, it may be because it's Mode is set to read-only.
 
-<%} else { %>
+<% } else { %>
 There are many ways to create a new file, but `touch` is popular and convenient. To create a new file with `touch`, enter the command followed by the filename you want to use, for example `touch yourfilename.txt`. If the file doesn't already exist, `touch` will create an empty file with that name.
 
 ## File properties
@@ -37,9 +39,9 @@ There are many ways to create a new file, but `touch` is popular and convenient.
 
 As well as modified and access time, files have other properties. You can see these by using `ls -l`. The `-l` is a parameter to display files in **l**ong format, i.e. with additional information. The most important of the displayed information is the file permissions, in the first column. There are three file permissions:
 
-* r: read, the permission to view a file's contents.
-* w: write, the permission to change a file's contents.
-* x: execute, the permission to execute a file, as a script or program.
+- r: read, the permission to view a file's contents.
+- w: write, the permission to change a file's contents.
+- x: execute, the permission to execute a file, as a script or program.
 
 These permissions are always in order, `rwx`. When the permission is off, it is replaced with a `-`. For example, a file you can only read has permissions `r--`. In `ls -l`, you will see up to 9 characters. This is because the permissions are repeated 3 times, for different types of users. The first set of permissions are for the files owner. The second are for "group", a collection of users of the same machine. The third is for "public", which is anyone who may have access to the file on the machine, including over an internet connection.
 
