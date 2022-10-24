@@ -1,4 +1,4 @@
-const { existsSync } = require("fs");
+const { existsSync, lstatSync } = require("fs");
 const path = require("path");
 
 module.exports = async function (helper) {
@@ -20,6 +20,15 @@ module.exports = async function (helper) {
     if (!existsSync(newFilePath)) {
       helper.fail(
         `TwilioQuest could not find the file "${newFileName}" in "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR}"! Make sure your newly created file is in the right directory!`
+      );
+      return;
+    }
+
+    const fileStats = lstatSync(newFilePath);
+
+    if (!fileStats.isFile()) {
+      helper.fail(
+        `TwilioQuest found "${newFileName}" in "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR}", but it isn't a file! Double check that you're using the right command when making your file!`
       );
       return;
     }
