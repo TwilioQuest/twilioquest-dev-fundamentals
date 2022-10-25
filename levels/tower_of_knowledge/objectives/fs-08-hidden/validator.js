@@ -1,51 +1,41 @@
-const { existsSync } = require("fs");
+const { existsSync, lstatSync } = require("fs");
 const path = require("path");
 
-// https://stackoverflow.com/questions/37521893/determine-if-a-path-is-subdirectory-of-another-in-node-js
-function isPathParent(parent, potentialChild) {
-  const relative = path.relative(parent, potentialChild);
-
-  return relative && !relative.startsWith("..") && !path.isAbsolute(relative);
-}
-
 module.exports = async function (helper) {
-  const { TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD } = helper.env;
-  const newDirPath = helper.getNormalizedInput("newDirPath", {
-    lowerCase: false,
-  });
+  const { TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR } = helper.env;
+  // Differentiating between the need for a "." and not, to further highlight the differences between
+  // OS's and their "hidden file conventions"
+  const newFileName =
+    process.platform === "win32" ? "sneaky.txt" : ".sneaky.txt";
+  const newFilePath = path.join(
+    TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR,
+    newFileName
+  );
 
   try {
-    if (!newDirPath) {
+    if (!existsSync(newFilePath)) {
       helper.fail(
-        "You need to provide the path to your new directory in the Hack Interface!"
+        `TwilioQuest could not find "${newFileName}" in "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR}"! Double check that your file is in the correct directory and that there are no typos in the name!`
       );
       return;
     }
 
-    if (!existsSync(newDirPath)) {
-      helper.fail(
-        `TwilioQuest cannot locate a directory at the path you entered, "${newDirPath}".`
-      );
-      return;
-    }
+    const fileStats = lstatSync(newFilePath);
 
-    if (!isPathParent(TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD, newDirPath)) {
+    if (!fileStats.isFile()) {
       helper.fail(
-        `TwilioQuest found your new directory "${newDirPath}", but it should be created within the present working directory you made previously "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD}".`
+        `TwilioQuest found "${newFileName}" in "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR}", but it isn't a file! Double check that you're using the right command when making your file!`
       );
       return;
     }
   } catch (err) {
-    helper.fail(`An error occurred while TwilioQuest was trying to validate your present working directory.
+    helper.fail(`An error occurred while TwilioQuest was trying to check your present working directory for "${newFileName}".
     
     ${err}`);
     return;
   }
 
-  helper.success("TwiloQuest was able to find your new directory! Good job!", [
-    {
-      name: "DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR",
-      value: newDirPath,
-    },
-  ]);
+  helper.success(
+    "TwiloQuest was able to find the sneaky hidden file! Great job!"
+  );
 };

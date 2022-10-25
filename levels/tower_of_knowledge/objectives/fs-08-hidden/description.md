@@ -1,57 +1,61 @@
 <% const isWindows = context.systemInfo.os === 'win32'; %>
 
-# Creating Our Own Directories
+# Creating Hidden Files
 
 <div class="aside">
 <h3>Requirements</h3>
 <ul>
-  <li>Make a new directory with <b>mkdir</b>.</li>
-  <li>Get the file path to this directory.</li>
-  <li>Enter this file path into the input on the right.</li>
+<% if(isWindows) { %>
+  <li>Make a new file called "sneaky.txt" in our directory with <b>ni</b>.</li>
+  <li>Mark the file as hidden with <b>attrib -h</b>.</li>
+<% } else { %>
+  <li>Make a new hidden file called ".sneaky.txt" in our directory with <b>touch</b>.</li>
+<% } %>
   <li>Once you're done, press <em>HACK</em>.</li>
 </ul>
 </div>
 
-Now that we can change into existing directories, lets learn how to make our own!
+Let's learn to create hidden files!
 
 <% if(isWindows) { %>
 
-We will be using the `mkdir`, or "make directory" command to accomplish this task. To use `mkdir` you write the name of the directory you want to create after the command in the terminal.
+We will be using a combination of the `ni` and `attrib` commands to make our file and hide it, respectively. You can use `ni` just like before by writing the name of the file you'd like to create after the command in the terminal: `ni yourfilename.txt`. Afterwards, you can use `attrib` with the `-h` flag to set the file to hidden like so: `attrib -h yourfilename.txt`.
 
-Here's an example of creating a directory called "test_directory". We also use `ls` before and after to confirm that the new directory has been made.
+Here's an example of creating a file called `spoon.txt` and marking it as hidden. We also use `ls` with the `-ah` flag before and after to confirm that the new file has been made.
 
 ```bash
-$ ls
-old_directory
+$ ls -ah
+*should not show anything*
 
-$ mkdir new_directory
+$ ni spoon.txt
+$ attrib -h spoon.txt
 
-$ ls
-old_directory new_directory
+$ ls -ah
+spoon.txt
 ```
 
-To complete this objective, use `mkdir` to create a new directory with a name of your choosing. Then, find the filepath that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
+To complete this objective, use `ni` to create a new file called `sneaky.txt`, and `attrib -h` to mark that file as hidden.
 
-Once you've found it, enter the file path to your new directory in the input on the right. Then click the _HACK_ button.
+Once you've made the new hidden file, click the _HACK_ button.
 
 <% } else { %>
 
-We will be using the `mkdir`, or "make directory" command to accomplish this task. To use `mkdir` you write the name of the directory you want to create after the command in the terminal.
+We will be using the `touch` command to create our file and hide it at the same time. Just like before, you write the name of the file you want to create after the command in the terminal, this time, making sure to add a period at the beginning: `touch .yourfilename`.
 
-Here's an example of creating a directory called "test_directory". We also use `ls` before and after to confirm that the new directory has been made.
+Here's an example of creating a hidden file called `.spoon.txt`. We also use `ls` with the `-a` flag before and after to confirm that the new file has been made.
 
 ```bash
-$ ls
-old_directory
+$ ls -a
+*should not show anything*
 
-$ mkdir new_directory
+$ touch .spoon.txt
 
-$ ls
-old_directory new_directory
+$ ls -a
+.spoon.txt
 ```
 
-To complete this objective, use `mkdir` to create a new directory with a name of your choosing. Then, find the filepath that leads to this new directory. You might want to use `cd` and `pwd` like you did in previous objectives!
+To complete this objective, use `touch` to create a new hidden file called `.sneaky.txt`.
 
-Once you've found it, enter the file path to your new directory in the input on the right. Then click the _HACK_ button.
+Once you've made the new hidden file, click the _HACK_ button.
 
 <% } %>

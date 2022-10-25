@@ -1,12 +1,12 @@
 {
-  "title": "Making our Own Directories",
-  "description": "Create a new directory where we can put our own files.",
+  "title": "Creating Hidden Files",
+  "description": "Create a new hidden file in our directory.",
   "validation_fields": [
     {
-      "name": "newDirPath",
-      "type": "text",
-      "placeholder": "/path/to/directory",
-      "label": "What is the file path to the directory you just made?"
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "Click HACK once you've created your sneaky hidden file!"
     }
   ],
   "show_ide": false,
