@@ -1,0 +1,16 @@
+{
+  "title": "Finding the fork",
+  "description": "Given a directory tree representing a file system, find the path to the fork.",
+  "validation_fields": [
+    {
+      "name": "filePath",
+      "type": "text",
+      "placeholder": "/path/to/file",
+      "label": "What is the path to the \"fork\" file?"
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}
