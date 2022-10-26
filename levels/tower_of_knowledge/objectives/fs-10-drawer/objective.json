@@ -1,0 +1,16 @@
+{
+  "title": "Creating a Cutlery Drawer Directory",
+  "description": "Create the cutlery drawer directory as described.",
+  "validation_fields": [
+    {
+      "name": "cutleryDrawerDirPath",
+      "type": "text",
+      "placeholder": "/path/to/cutlery/drawer/directory",
+      "label": "What is the path to the cutlery drawer directory you made?"
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}
