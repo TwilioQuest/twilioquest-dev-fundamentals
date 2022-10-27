@@ -1,0 +1,16 @@
+{
+  "title": "Moving The Spoon",
+  "description": "Move the spoon file to the correct directory.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "Once you've moved the spoon file to the correct directory, HACK away!"
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}
