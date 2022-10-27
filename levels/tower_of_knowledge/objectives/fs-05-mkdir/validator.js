@@ -1,4 +1,4 @@
-const { existsSync } = require("fs");
+const { existsSync, lstatSync } = require("fs");
 const path = require("path");
 
 // https://stackoverflow.com/questions/37521893/determine-if-a-path-is-subdirectory-of-another-in-node-js
@@ -32,6 +32,15 @@ module.exports = async function (helper) {
     if (!isPathParent(TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD, newDirPath)) {
       helper.fail(
         `TwilioQuest found your new directory "${newDirPath}", but it should be created within the present working directory you made previously "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_PWD}".`
+      );
+      return;
+    }
+
+    const entryStats = lstatSync(newDirPath);
+
+    if (!entryStats.isDirectory()) {
+      helper.fail(
+        `TwilioQuest found "${newDirPath}", but it's not a directory! Double check that you're using the correct command when making your directory!`
       );
       return;
     }
