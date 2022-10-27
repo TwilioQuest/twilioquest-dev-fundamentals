@@ -1,0 +1,16 @@
+{
+  "title": "Copying Our Spoons",
+  "description": "Copy the correct number of spoons to the same drawer directory.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "Once you've copied all the spoons to the correct drawer directory, HACK away!"
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}
