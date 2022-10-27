@@ -33,6 +33,12 @@ module.exports = async function (helper) {
   }
 
   helper.success(
-    "Your cutlery drawer directory looks clean and organized. Great job!"
+    "Your cutlery drawer directory looks clean and organized. Great job!",
+    [
+      {
+        name: "DEV_FUNDAMENTALS_FILE_SYSTEM_CUTLERY_DRAWER_DIR",
+        value: cutleryDrawerDirPath,
+      },
+    ]
   );
 };
