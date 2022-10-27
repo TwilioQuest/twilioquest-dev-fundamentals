@@ -12,6 +12,7 @@
     "fs-02-pwd",
     "fs-03-ls",
     "fs-04-cd",
-    "fs-05-mkdir"
+    "fs-05-mkdir",
+    "fs-12-cp"
   ]
 }
