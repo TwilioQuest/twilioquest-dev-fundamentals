@@ -3,23 +3,20 @@ const path = require("path");
 
 module.exports = async function (helper) {
   const {
-    DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR,
-    DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_FILE,
+    TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR,
+    TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_FILE,
   } = helper.env;
-  const newFilePath = path.join(
-    DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR,
-    DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_FILE
-  );
+  const fileName = path.basename(TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_FILE);
 
   try {
-    if (existsSync(newFilePath)) {
+    if (existsSync(TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_FILE)) {
       helper.fail(
-        `"${DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_FILE}" still exists in your "${DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR}" directory! Make sure to delete the file with "rm"!`
+        `"${fileName}" still exists in your "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR}" directory! Make sure to delete the file with "rm"!`
       );
       return;
     }
   } catch (err) {
-    helper.fail(`An error occurred while TwilioQuest was checking for the deletion of "${DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_FILE}".
+    helper.fail(`An error occurred while TwilioQuest was checking for the deletion of "${fileName}" in "${TQ_DEV_FUNDAMENTALS_FILE_SYSTEM_NEW_DIR}".
     
     ${err}`);
     return;
