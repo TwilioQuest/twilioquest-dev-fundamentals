@@ -34,7 +34,7 @@ $ ls
 cloud.txt
 ```
 
-To complete this objective, use or `ni yourfilename` to create a new file with a name of your choosing. Then, copy the name of your newly created file. You might want to use `cd` and `pwd` like you did in previous objectives!
+To complete this objective, use `ni yourfilename` to create a new file with a name of your choosing. Then, copy the name of your newly created file. You might want to use `cd` and `pwd` like you did in previous objectives!
 
 Once finished, enter the name of your new file in the input on the right. Then click the _HACK_ button.
 
