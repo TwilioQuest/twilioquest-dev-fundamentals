@@ -1,0 +1,16 @@
+{
+  "title": "Removing Files",
+  "description": "Remove the file we made in the last objective.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "Click HACK once you've deleted the file!"
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}
