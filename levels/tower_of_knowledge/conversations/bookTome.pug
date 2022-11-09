@@ -1,0 +1,50 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="Tome of Tenacious Travelers")
+  case lastResponse
+    when "chapter_2"
+      statement#chapter_2
+      responses
+        response#chapter_1.
+          Chapter 1: New Developer Pain Point Collector
+
+    when "chapter_1"
+      statement#default
+      responses
+        response#chapter_2.
+          Chapter 2: Suspicions
+
+    default
+      statement#default
+      responses
+        response#chapter_2.
+          Chapter 2: Suspicions
+
+  statements
+    statement#default
+      text.
+        <span class="highlight">Chapter 1: New Developer Pain Point Collector</span><br><br>
+        After the Librarian began construction on the Tower, it stood dormant. 
+        Few travelers came looking for the Tower’s developer fundamentals, 
+        though the Librarian knew, from her research, that her library contained 
+        the knowledge they needed. Then one day the Pain Point Collector crashed unexpectedly.
+
+    statement#chapter_1
+      text.
+        <span class="highlight">Chapter 1: New Developer Pain Point Collector</span><br><br>
+        After the Librarian began construction on the Tower, it stood dormant. 
+        Few travelers came looking for the Tower’s developer fundamentals, 
+        though the Librarian knew, from her research, that her library contained 
+        the knowledge they needed. Then one day the Pain Point Collector crashed unexpectedly.
+        
+    statement#chapter_2
+      text.
+        <span class="highlight">Chapter 2: Suspicions</span><br><br>
+        Unable to fix the Pain Point Collector, the Librarian sent out a distress signal 
+        for support from the nearby system. It wasn’t just the program’s crash that 
+        made the Librarian concerned: she’d begun to suspect that it had been 
+        tampered with by the Legacy Systems. She hoped that her signal would be 
+        heard by a <span class="highlight">TwilioQuest Operator</span> who’d repair 
+        the program and help defend her Tower.
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);

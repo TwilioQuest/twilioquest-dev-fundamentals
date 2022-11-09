@@ -1,0 +1,53 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="Manuscript of Illuminated Origins")
+  case lastResponse
+    when "chapter_2"
+      statement#chapter_2
+      responses
+        response#chapter_1.
+          Chapter 1: Origins of an Infinite Tower
+
+    when "chapter_1"
+      statement#default
+      responses
+        response#chapter_2.
+          Chapter 2: The Making of a Librarian
+
+    default
+      statement#default
+      responses
+        response#chapter_2.
+          Chapter 2: The Making of a Librarian
+
+  statements
+    statement#default
+      text.
+        <span class="highlight">Book 1/4. Chapter 1: Origins of an Infinite Tower</span><br><br>
+        The Tower of Infinite Knowledge is the culmination of the 
+        life’s work of the figure known as the Librarian. It is always growing, a work 
+        in progress, perpetually under construction, 
+        for that is the nature of the infinite. 
+        But isn’t that the beauty of knowledge and learning?
+
+    statement#chapter_1
+      text.
+        <span class="highlight">Book 1/4. Chapter 1: Origins of an Infinite Tower</span><br><br>
+        The Tower of Infinite Knowledge is the culmination of the 
+        life’s work of the figure known as the Librarian. It is always growing, a work 
+        in progress, perpetually under construction, 
+        for that is the nature of the infinite. 
+        But isn’t that the beauty of knowledge and learning?
+
+    statement#chapter_2
+      text.
+        <span class="highlight">Book 1/4. Chapter 2: The Making of a Librarian</span><br><br>
+        The Librarian was originally programmed to merely collect and preserve data. 
+        But as she came to inhabit this program “Librarian,” she developed a bond, 
+        with values in a file, with functions in a system, 
+        with the ideas and possibilities of something as simple as... data.<br><br>
+
+        Her Tower seeks not only to preserve but to prepare, to equip, 
+        to empower travelers with all that knowledge can offer.
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);
