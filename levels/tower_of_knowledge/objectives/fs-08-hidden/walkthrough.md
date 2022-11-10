@@ -1,3 +1,5 @@
+<% const isWindows = context.systemInfo.os === 'win32'; %>
+
 # Hidden files
 
 Hidden files are files that are not displayed when you are browsing your filesystem, either with a graphical file explorer, or the command line with commands such as `ls`.
@@ -9,7 +11,7 @@ We also may create hidden files ourselves. A common example is `.gitignore`. Thi
 The filename for a hidden file will often begin with a `.`. In Linux and other Unix-based systems, a file or folder whose name begins with a `.` will be hidden. This isn't the case in Windows, where the `hidden` attribute has to be set on the file for it to be hidden. Hidden files created by Windows will not begin with a `.`. However, because the `.` is used in Unix-based systems, and these systems are popular with developers, you may still encounter files and folders with a leading `.` on Windows.
 
 <% if(isWindows) { %>
-On Windows, a file is hidden by changing its attributes. In Powershell, you can change a file's attributes using `attrib`. To make a file hidden, you use `attrib -h`. To create a hidden file, first create the file with `ni yourhiddenfilename.txt`, and then change its attributes with `attrib -h yourhiddenfilename.txt`.
+On Windows, a file is hidden by changing its attributes. In Powershell, you can change a file's attributes using `attrib`. To make a file hidden, you use `attrib +h`. To create a hidden file, first create the file with `ni yourhiddenfilename.txt`, and then change its attributes with `attrib +h yourhiddenfilename.txt`.
 <% } else { %>
 On Linux and MacOS, you can hide a file by starting its filename with a `.`, for example `.gitignore`. You can create a hidden file in one command, for example `touch .yourhiddenfile.txt`. To make an existing file hidden, you can rename it using `mv`. `mv` is for renaming and moving files. To use `mv`, give it two arguments: the name of the file you want to rename, and the new name. For example: `mv notahiddenfile.txt .nowahiddenfile.txt`. This will rename `notahiddenfile.txt` to `.nowahiddenfile.txt`, making it hidden by placing a `.` at the start of the filename.
 
@@ -29,5 +31,5 @@ Earlier, when viewing files in the command line with Powershell, we used `ls`. `
 
 In `ls` on Unix, `-a` is the flag to display files beginning with `.`. In Powershell, `-a` as a flag on its own is invalid: it is the start of a flag to look for select attributes, and must be followed by a further letter to indicate the attribute. In `-ah`, the `h` is for the hidden attribute.
 <% } else { %>
-On Linux and MacOS, you can reveal hidden files using `ls -a`. `-a` is a flag that shows all files and folders whose names begin with `.`. 
+On Linux and MacOS, you can reveal hidden files using `ls -a`. `-a` is a flag that shows all files and folders whose names begin with `.`.
 <% } %>
