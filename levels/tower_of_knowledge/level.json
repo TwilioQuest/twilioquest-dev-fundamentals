@@ -13,6 +13,8 @@
     "fs-03-ls",
     "fs-04-cd",
     "fs-05-mkdir",
+    "fs-06-touch",
+    "fs-07-rm",
     "fs-08-hidden"
   ]
 }
