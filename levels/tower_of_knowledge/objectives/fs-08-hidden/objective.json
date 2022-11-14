@@ -1,0 +1,16 @@
+{
+  "title": "Creating Hidden Files",
+  "description": "Create a new hidden file in our directory.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "Click HACK once you've created your sneaky hidden file!"
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}
