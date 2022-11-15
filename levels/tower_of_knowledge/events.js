@@ -111,10 +111,10 @@ module.exports = function (event, world) {
 
   // if (event.name === "playerDidInteract") {
   //   console.log(`Interacting with ${event.target.key}`);
-  
+
   //   if (event.target.notify) runObjectNotification(event);
   //   }
-  
+
   // THIS WORKS FOR ONE INTERACTION:
   // if (event.name === 'playerDidInteract' && event.target.key === 'bookManuscript') {
   //   world.startConversation('bookManuscript', 'BookPodium_IlluminatedManuscript.png');
@@ -178,6 +178,7 @@ module.exports = function (event, world) {
     ["fs-03-ls", "fs-shelf-2"],
     ["fs-04-cd", "fs-shelf-3"],
     ["fs-05-mkdir", "fs-shelf-4"],
+    ["fs-07-rm", "fs-shelf-07"],
   ];
 
   const doorPairs = [
