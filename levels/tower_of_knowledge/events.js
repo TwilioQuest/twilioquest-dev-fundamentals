@@ -129,39 +129,43 @@ module.exports = function (event, world) {
     event.name === "playerDidInteract" &&
     event.target.key === "play-video-tv"
   ) {
-    if (event.target.video === "terminal") {
-      world.showOverlayComponent({
-        key: "iframe",
-        props: {
-          url: "https://www.youtube.com/embed/lZ7Kix9bjPI",
-          shouldUseTqChrome: true,
-          title: "What is a terminal and why should I learn about it?",
-          width: "80vw",
-          height: "80vh",
-          fadeIn: true,
-          fadeOut: true,
-        },
-      });
+    world.forEachEntities("play-video-tv-screen", async (tv) => {
+      await tv.playAnimation("on");
 
-      worldState.terminal.hasViewedTv = true;
-    } else {
-      // Original video player implementation for the
-      // File System floor
-      world.showOverlayComponent({
-        key: "iframe",
-        props: {
-          url: "https://www.youtube.com/embed/2zLQwOiIac8",
-          shouldUseTqChrome: true,
-          title: "What is the file system and why should I learn about it?",
-          width: "80vw",
-          height: "80vh",
-          fadeIn: true,
-          fadeOut: true,
-        },
-      });
+      if (event.target.video === "terminal") {
+        world.showOverlayComponent({
+          key: "iframe",
+          props: {
+            url: "https://www.youtube.com/embed/lZ7Kix9bjPI",
+            shouldUseTqChrome: true,
+            title: "What is a terminal and why should I learn about it?",
+            width: "80vw",
+            height: "80vh",
+            fadeIn: true,
+            fadeOut: true,
+          },
+        });
 
-      markTvAsViewed(worldState);
-    }
+        worldState.terminal.hasViewedTv = true;
+      } else {
+        // Original video player implementation for the
+        // File System floor
+        world.showOverlayComponent({
+          key: "iframe",
+          props: {
+            url: "https://www.youtube.com/embed/2zLQwOiIac8",
+            shouldUseTqChrome: true,
+            title: "What is the file system and why should I learn about it?",
+            width: "80vw",
+            height: "80vh",
+            fadeIn: true,
+            fadeOut: true,
+          },
+        });
+
+        markTvAsViewed(worldState);
+      }
+    });
   }
 
   if (
@@ -170,6 +174,12 @@ module.exports = function (event, world) {
     !hasViewedTv(worldState)
   ) {
     viewTv(world);
+  }
+
+  if (event.name === "overlayComponentDidHide") {
+    world.forEachEntities("play-video-tv-screen", async (tv) => {
+      await tv.playAnimation("off");
+    });
   }
 
   // Match objectives to shelves they should unlock when an
