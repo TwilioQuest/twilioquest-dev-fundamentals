@@ -16,6 +16,9 @@ const INITIAL_STATE = {
   terminal: {
     hasViewedTv: false,
   },
+  lobby: {
+    wokenLibrarian: false,
+  },
 };
 
 const hasViewedTv = (worldState) => {
@@ -47,6 +50,38 @@ module.exports = function (event, world) {
   // const runObjectNotification = ({ target: { key = "default" } }) => {
   //   world.startConversation(key, key + ".png");
   //   };
+
+  world.forEachEntities("librarian-lobby", async (librarian) => {
+    if (event.name === "mapDidLoad") {
+      if (worldState.lobby.wokenLibrarian) {
+        librarian.isConversationDisabled = false;
+        librarian.idleAnimations.startIdle();
+      } else {
+        librarian.isConversationDisabled = true;
+        librarian.idleAnimations.stopIdle();
+        librarian.playAnimation("sleep", true);
+      }
+    }
+
+    if (
+      event.name === "playerDidInteract" &&
+      event.target.key === "librarian-lobby"
+    ) {
+      await librarian.playAnimation("wakeUp");
+
+      const currentWorldState = world.getState(WORLD_STATE_KEY);
+      currentWorldState.lobby.wokenLibrarian = true;
+      world.setState(WORLD_STATE_KEY, currentWorldState);
+
+      librarian.isConversationDisabled = false;
+      librarian.idleAnimations.startIdle();
+
+      world.startConversation(
+        librarian.conversation,
+        librarian.conversationAvatar
+      );
+    }
+  });
 
   if (
     event.name === "playerDidInteract" &&
